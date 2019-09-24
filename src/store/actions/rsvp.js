@@ -4,15 +4,14 @@ import axios from "axios";
 export const fetchRSVPSuccess = rsvpData => {
   return {
     type: actionTypes.FETCH_RSVP_SUCCESS,
-    rsvpData: rsvpData,
-    error: null,
-    loading: false
+    rsvpData: rsvpData
   };
 };
 
-export const updateRSVPSuccess = () => {
+export const updateRSVPSuccess = rsvpData => {
   return {
-    type: actionTypes.UPDATE_RSVP_SUCCESS
+    type: actionTypes.UPDATE_RSVP_SUCCESS,
+    rsvpData: rsvpData
   };
 };
 
@@ -26,6 +25,26 @@ export const RSVPFail = error => {
 export const RSVPStart = () => {
   return {
     type: actionTypes.RSVP_START
+  };
+};
+
+export const fetchEventDatesStart = () => {
+  return {
+    type: actionTypes.FETCH_EVENT_DATES_START
+  };
+};
+
+export const fetchEventDatesSuccess = eventDates => {
+  return {
+    type: actionTypes.FETCH_EVENT_DATES_SUCCESS,
+    eventDates: eventDates
+  };
+};
+
+export const fetchEventDatesFail = error => {
+  return {
+    type: actionTypes.FETCH_EVENT_DATES_FAIL,
+    error: error
   };
 };
 
@@ -52,6 +71,20 @@ export const fetchRSVP = (token, email) => {
   };
 };
 
+export const fetchEventDates = token => {
+  return dispatch => {
+    dispatch(fetchEventDatesStart());
+    axios
+      .get("/eventDates.json?auth=" + token)
+      .then(res => {
+        dispatch(fetchEventDatesSuccess(res.data));
+      })
+      .catch(err => {
+        dispatch(fetchEventDatesFail(err.response.data.error));
+      });
+  };
+};
+
 export const updateRSVP = (token, updatedData) => {
   return dispatch => {
     dispatch(RSVPStart());
@@ -72,7 +105,7 @@ export const updateRSVP = (token, updatedData) => {
     axios
       .put("/guests/" + id + ".json?auth=" + token, updatedForm)
       .then(res => {
-        dispatch(updateRSVPSuccess());
+        dispatch(updateRSVPSuccess(updatedData));
       })
       .catch(err => {
         dispatch(RSVPFail(err.response.data.error));

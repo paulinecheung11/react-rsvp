@@ -1,2 +1,2 @@
 export { auth, logout } from "./auth";
-export { fetchRSVP, updateRSVP } from "./rsvp";
+export { fetchRSVP, fetchEventDates, updateRSVP } from "./rsvp";

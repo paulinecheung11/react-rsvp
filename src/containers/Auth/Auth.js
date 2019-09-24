@@ -95,9 +95,9 @@ class Auth extends Component {
       this.state.controls.email.value,
       this.state.controls.password.value
     );
-    /* if (!this.props.error) {
-      this.props.history.push("/home/rsvp");
-    } */
+    if (!this.props.error) {
+      this.props.history.push("/");
+    }
   };
 
   render() {

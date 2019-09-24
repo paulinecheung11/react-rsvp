@@ -13,6 +13,7 @@ class RSVP extends Component {
   };
 
   componentDidMount() {
+    this.props.onFetchEventDates(this.props.token);
     this.props.onFetchRSVP(this.props.token, this.props.email);
   }
 
@@ -49,26 +50,52 @@ class RSVP extends Component {
   updateRsvpHandler = event => {
     event.preventDefault();
     this.props.onUpdateRSVP(this.props.token, this.state.updatedForm);
+    this.setState({
+      updatedError: "",
+      updatedForm: null
+    });
   };
 
   render() {
     let data = null,
-      errorMessage = null,
+      formMessage = null,
+      formError = null,
       displayData = null;
+
+    let dates = {
+      ...this.props.eventDates
+    };
 
     if (!this.state.updatedForm) {
       data = {
         ...this.props.rsvpData
       };
+
       if (data.id) {
-        errorMessage = this.props.error;
+        if (this.props.error) {
+          formError = true;
+          formMessage = this.props.error;
+        } else {
+          if (this.props.success) {
+            formError = false;
+            if (data.attend === "yes") {
+              formMessage = "Thank you for attending the wedding";
+            } else {
+              formMessage = "Sorry that you won't be attending";
+            }
+          }
+        }
       } else {
-        // errorMessage = "Guest missing.  Please contact Amanda/Ashley";
-        errorMessage = "";
+        formError = true;
+
+        formMessage = "Guest missing.  Please contact Amanda/Ashley";
       }
     } else {
       data = this.state.updatedForm;
-      errorMessage = this.state.updatedError;
+      if (this.state.updatedError) {
+        formError = true;
+        formMessage = this.state.updatedError;
+      }
     }
 
     if (this.props.loading) {
@@ -78,10 +105,9 @@ class RSVP extends Component {
     if (!this.props.loading) {
       displayData = (
         <div style={{ textAlign: "center" }} className={classes.RSVP}>
-          <p>{errorMessage}</p>
+          <p>{formMessage}</p>
           <h1> RSVP </h1>
-          <h2> Kindly reply by 1/31/2020 </h2>
-          <h4>{this.state.dummy}</h4>
+          <h2> Kindly reply by {dates.rsvpDate} </h2>
           <h3> Name: {data.name} </h3>
           <ul>
             <input
@@ -107,7 +133,7 @@ class RSVP extends Component {
             />
             Declines Regretfully
           </ul>
-          <button disabled={errorMessage} onClick={this.updateRsvpHandler}>
+          <button disabled={formError} onClick={this.updateRsvpHandler}>
             SUBMIT
           </button>
         </div>
@@ -118,9 +144,11 @@ class RSVP extends Component {
 }
 
 const mapStateToProps = state => {
+  console.log("mapStateToProps", state.rsvp.eventDates);
   return {
     token: state.auth.token,
     email: state.auth.email,
+    eventDates: state.rsvp.eventDates,
     rsvpData: state.rsvp.rsvpData,
     loading: state.rsvp.loading,
     error: state.rsvp.error,
@@ -131,6 +159,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     onFetchRSVP: (token, email) => dispatch(actions.fetchRSVP(token, email)),
+    onFetchEventDates: token => dispatch(actions.fetchEventDates(token)),
     onUpdateRSVP: (token, updatedData) =>
       dispatch(actions.updateRSVP(token, updatedData))
   };
