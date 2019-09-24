@@ -4,7 +4,6 @@ import { connect } from "react-redux";
 import Button from "../../components/UI/Button/Button";
 import Input from "../../components/UI/Input/Input";
 import Spinner from "../../components/UI/Spinner/Spinner";
-import classes from "./Auth.css";
 
 import * as actions from "../../store/actions/index";
 
@@ -133,13 +132,20 @@ class Auth extends Component {
     }
 
     return (
-      <div className={classes.Auth}>
+      <fieldset className="card mx-auto py-4 px-5">
+        {/* TODO: Style errorMessage */}
         {errorMessage}
+        <legend class="form-legend mx-auto py-3 d-flex flex-justify-center text-serif text-center">
+          To view your invitation, enter your email and top secret password below:
+        </legend>
         <form onSubmit={this.submitHandler}>
           {form}
-          <Button btnType="Success">SIGNIN</Button>
+          <div class="py-4 text-center">
+            <Button btnType="Success" className="form-submit text-uppercase text-spacing text-bold">Submit</Button>
+            <div className="mx-auto"></div>
+          </div>
         </form>
-      </div>
+      </fieldset>
     );
   }
 }
