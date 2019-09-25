@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { Route } from "react-router-dom";
 import RSVP from "./RSVP/RSVP";
 import Auth from "../Auth/Auth";
 
@@ -114,9 +115,9 @@ class Invitation extends Component {
               </ol>
             </div>
             {this.props.isauthenticated ? (
-              <RSVP />
+              <Route path={this.props.match.url} component={RSVP} />
             ) : (
-              <Auth />
+              <Route path={this.props.match.url} component={Auth} />
             )}
           </div>
         </div>
