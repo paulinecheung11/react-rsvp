@@ -101,7 +101,7 @@ body {
 }
 
 .text-serif {
-  font-family: minion pro, serif;
+  font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 .text-italic {
@@ -309,7 +309,7 @@ body {
 
 @media screen and (max-width: 949px) {
   .main {
-    background-image: url("/public/illo-mobile.jpg");
+    background-image: url("illo-mobile.jpg");
     background-size: calc(.55 * var(--max-width));
   }
 
@@ -320,7 +320,7 @@ body {
 
 @media screen and (min-width: 950px) {
   .main {
-    background-image: url("/public/illo-desktop.jpg");
+    background-image: url("illo-desktop.jpg");
     background-size: var(--max-width);
   }
 
@@ -371,7 +371,7 @@ body {
 }
 
 .top__desc {
-  max-width: 460px;
+  max-width: 550px;
 }
 
 .top__scroll {
@@ -491,7 +491,7 @@ body {
 .card {
   background-color: var(--color-cream-light);
   box-sizing: border-box;
-  max-width: 360px;
+  max-width: 375px;
   width: 75%;
 }
 

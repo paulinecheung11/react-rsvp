@@ -132,20 +132,13 @@ class Auth extends Component {
     }
 
     return (
-      <fieldset className="card mx-auto py-4 px-5">
-        {/* TODO: Style errorMessage */}
+      <div>
         {errorMessage}
-        <legend className="form-legend mx-auto py-3 d-flex flex-justify-center text-serif text-center">
-          To view your invitation, enter your email and top secret password below:
-        </legend>
         <form onSubmit={this.submitHandler}>
           {form}
-          <div className="py-4 text-center">
-            <Button btnType="Success" className="form-submit text-uppercase text-spacing text-bold">Submit</Button>
-            <div className="mx-auto"></div>
-          </div>
+          <Button btnType="Success">SIGNIN</Button>
         </form>
-      </fieldset>
+      </div>
     );
   }
 }
