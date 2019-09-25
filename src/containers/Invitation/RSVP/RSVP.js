@@ -144,7 +144,6 @@ class RSVP extends Component {
 }
 
 const mapStateToProps = state => {
-  console.log("mapStateToProps", state.rsvp.eventDates);
   return {
     token: state.auth.token,
     email: state.auth.email,
