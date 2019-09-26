@@ -97,9 +97,13 @@ export const updateRSVP = (token, updatedData) => {
     const updatedForm = {
       name: data.name,
       email: data.email,
+      password: data.password,
       guestCount: data.guestCount,
       attend: data.attend,
-      rsvpCount: data.rsvpCount
+      rsvpCount: data.rsvpCount,
+      initialEmailDate: data.initialEmailDate,
+      followUpEmailDate: data.followUpEmailDate,
+      message: data.message
     };
 
     axios

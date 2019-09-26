@@ -6,44 +6,64 @@ import Auth from "../Auth/Auth";
 
 class Invitation extends Component {
   render() {
-    console.log("token", this.props.token);
-
     return (
-      <div className='text-purple lh-default'>
-        <svg xmlns='http://www.w3.org/2000/svg' style={{display: 'none'}}>
-          <symbol id='heart' viewBox='0 0 32 32'>
-            <path d='M31.656 8.275c-1.065-3.838-4.583-6.518-8.553-6.518-0.344 0-0.691 0.022-1.031 0.063-3.529 0.429-5.243 2.353-6.072 3.984-0.826-1.631-2.542-3.555-6.071-3.984-0.301-0.037-0.595-0.057-0.877-0.063-0.051-0.001-0.103-0.001-0.154-0.001-3.973 0-7.491 2.68-8.555 6.519-0.585 2.109-0.711 5.539 2.011 9.915 2.581 4.15 7.125 8.199 13.504 12.037 0.029 0.017 0.064 0.022 0.096 0.014 0.017-0.005 0.031-0.013 0.045-0.024 0.014 0.011 0.029 0.019 0.046 0.024 0.010 0.003 0.022 0.003 0.032 0.003 0.023 0 0.043-0.005 0.063-0.017 6.381-3.837 10.925-7.887 13.505-12.037 2.723-4.377 2.597-7.808 2.011-9.915z'></path>
+      <div className="text-purple lh-default">
+        <svg xmlns="http://www.w3.org/2000/svg" style={{ display: "none" }}>
+          <symbol id="heart" viewBox="0 0 32 32">
+            <path d="M31.656 8.275c-1.065-3.838-4.583-6.518-8.553-6.518-0.344 0-0.691 0.022-1.031 0.063-3.529 0.429-5.243 2.353-6.072 3.984-0.826-1.631-2.542-3.555-6.071-3.984-0.301-0.037-0.595-0.057-0.877-0.063-0.051-0.001-0.103-0.001-0.154-0.001-3.973 0-7.491 2.68-8.555 6.519-0.585 2.109-0.711 5.539 2.011 9.915 2.581 4.15 7.125 8.199 13.504 12.037 0.029 0.017 0.064 0.022 0.096 0.014 0.017-0.005 0.031-0.013 0.045-0.024 0.014 0.011 0.029 0.019 0.046 0.024 0.010 0.003 0.022 0.003 0.032 0.003 0.023 0 0.043-0.005 0.063-0.017 6.381-3.837 10.925-7.887 13.505-12.037 2.723-4.377 2.597-7.808 2.011-9.915z"></path>
           </symbol>
         </svg>
-        <div className='mainframe mx-auto'>
-          <div className='frame'></div>
-          <div className='frame__footer d-flex flex-items-center flex-justify-center col-12 text-uppercase text-bold text-cream text-spacing'>
+        <div className="mainframe mx-auto">
+          <div className="frame"></div>
+          <div className="frame__footer d-flex flex-items-center flex-justify-center col-12 text-uppercase text-bold text-cream text-spacing">
             <span>Ashley</span>
-            <button className='frame__icon px-4 d-flex' id='js-love-trigger'>
+            <button className="frame__icon px-4 d-flex" id="js-love-trigger">
               <svg>
-                <use xlinkHref='#heart' />
+                <use xlinkHref="#heart" />
               </svg>
             </button>
             <span>Amanda</span>
           </div>
-          <div className='main'>
-            <div className='hearts' id='js-love'></div>
-            <svg className='cloud cloud--top' viewBox='0 0 290 32' width='1504' height='166'>
-              <path fill='#ffefde' d='M289.928 32c-28.145 0-27.759-12.145-43.32-12.145-11.053 0-13.164 6.013-21.995 6.013-10.059 0-20.495-14.687-44.53-14.687-20.748 0-24.731 9.374-41.288 9.374-16 0-35.688-20.555-74.024-20.555-41.831 0-64.771 23.057-64.771 32z'></path>
+          <div className="main">
+            <div className="hearts" id="js-love"></div>
+            <svg
+              className="cloud cloud--top"
+              viewBox="0 0 290 32"
+              width="1504"
+              height="166"
+            >
+              <path
+                fill="#ffefde"
+                d="M289.928 32c-28.145 0-27.759-12.145-43.32-12.145-11.053 0-13.164 6.013-21.995 6.013-10.059 0-20.495-14.687-44.53-14.687-20.748 0-24.731 9.374-41.288 9.374-16 0-35.688-20.555-74.024-20.555-41.831 0-64.771 23.057-64.771 32z"
+              ></path>
             </svg>
-            <svg className='cloud cloud--middle' viewBox='0 0 290 32' width='752' height='83'>
-              <path fill='#ffefde' d='M289.928 32c-28.145 0-27.759-12.145-43.32-12.145-11.053 0-13.164 6.013-21.995 6.013-10.059 0-20.495-14.687-44.53-14.687-20.748 0-24.731 9.374-41.288 9.374-16 0-35.688-20.555-74.024-20.555-41.831 0-64.771 23.057-64.771 32z'></path>
+            <svg
+              className="cloud cloud--middle"
+              viewBox="0 0 290 32"
+              width="752"
+              height="83"
+            >
+              <path
+                fill="#ffefde"
+                d="M289.928 32c-28.145 0-27.759-12.145-43.32-12.145-11.053 0-13.164 6.013-21.995 6.013-10.059 0-20.495-14.687-44.53-14.687-20.748 0-24.731 9.374-41.288 9.374-16 0-35.688-20.555-74.024-20.555-41.831 0-64.771 23.057-64.771 32z"
+              ></path>
             </svg>
-            <svg className='birds' viewBox='0 0 126 32'>
+            <svg className="birds" viewBox="0 0 126 32">
               <path d="M8.043 1.686c0.301 0.251 0.461 0.449 0.544 0.633 0.133-0.295 0.41-0.624 0.828-1.084 0.697-0.764 1.866-1.27 2.433-1.234l-3.189 3.255-2.836-2.374c0.569-0.105 1.436 0.149 2.219 0.804z"></path>
               <path d="M3.054 5.042c-0.035 0.099-0.055 0.212-0.055 0.331 0 0.069 0.007 0.137 0.020 0.202l-0.001-0.007c-0.214-0.111-0.531-0.192-0.994-0.293-0.768-0.168-1.701-0.033-2.023 0.184l3.404 0.636 0.613-2.251c-0.391 0.141-0.793 0.575-0.963 1.199z"></path>
               <path d="M10.548 23.344c-0.133 0.115-0.235 0.263-0.293 0.431l-0.002 0.007c-0.13-0.201-0.364-0.433-0.715-0.751-0.581-0.529-1.456-0.88-1.844-0.854l2.631 2.253 1.656-1.644c-0.409-0.073-0.976 0.107-1.433 0.557z"></path>
               <path d="M122.392 27.592c0.301 0.251 0.461 0.449 0.545 0.633 0.132-0.295 0.409-0.624 0.828-1.084 0.696-0.764 1.865-1.27 2.431-1.232l-3.188 3.253-2.837-2.374c0.57-0.105 1.437 0.149 2.22 0.804z"></path>
               <path d="M117.404 30.948c-0.035 0.098-0.056 0.211-0.056 0.329 0 0.070 0.007 0.138 0.021 0.203l-0.001-0.006c-0.215-0.111-0.532-0.192-0.995-0.293-0.768-0.168-1.701-0.033-2.023 0.184l3.404 0.636 0.612-2.251c-0.391 0.141-0.793 0.575-0.962 1.199z"></path>
             </svg>
-            <div className='top py-sm-3 py-lg-6 text-center'>
-              <h1 className='py-sm-3 py-lg-6 text-bold text-uppercase text-spacing'>- We are getting -</h1>
-              <svg className='top__lettering col-10' id='icon-married' viewBox='0 0 71 32'>
+            <div className="top py-sm-3 py-lg-6 text-center">
+              <h1 className="py-sm-3 py-lg-6 text-bold text-uppercase text-spacing">
+                - We are getting -
+              </h1>
+              <svg
+                className="top__lettering col-10"
+                id="icon-married"
+                viewBox="0 0 71 32"
+              >
                 <title>Married! &lt;3</title>
                 <path d="M12.419 8.882c-0.091 2.030 0.046 3.878-1.848 8.304-3.080 7.118-8.624 8.806-8.715 9.239-0.091 0.388 1.186 0.297 2.076 0.068 0.662-0.16 4.837-3.24 6.685-6.662 1.848-3.468 2.373-7.551 2.441-9.627 0.023-1.049 0.023-1.848-0.251-2.167-0.434-0.502-0.365 0.297-0.388 0.844z"></path>
                 <path d="M1.947 13.399c0 0-1.483-1.278-0.593-3.445s3.536-4.426 7.232-4.54c2.806-0.091 5.225 1.688 5.772 4.038 0.548 2.327 0.205 7.095-0.388 9.034-0.593 1.962-0.799 2.92-0.297 3.194 0.502 0.251 0.89 0.16 1.278 0.091s0.89-4.084 1.095-6.662c0.205-2.578 0.433-6.707-2.578-9.171s-7.141-1.665-9.217-0.456c-2.076 1.209-4.13 2.601-4.198 5.703-0.046 1.688 1.437 2.418 1.894 2.213z"></path>
@@ -65,51 +85,107 @@ class Invitation extends Component {
                 <path d="M38.565 10.867c0.251-0.365 0.57-0.548 0.867-0.297s0.548 0.662 0.137 1.049c-0.411 0.388-1.072 1.118-1.346 1.871-0.342 1.004-0.502 2.076-0.183 2.236 0.616 0.297 1.232-0.479 2.076-1.528 0.821-1.049 1.711-1.916 1.506-1.346-0.228 0.57-1.141 2.646-1.141 2.646s-1.232 1.141-2.259 1.209c-1.027 0.068-1.369-1.004-1.095-2.418 0.251-1.369 0.707-2.327 1.437-3.422z"></path>
                 <path d="M46.893 21.498c2.669-0.297 4.882 0.57 6.092 1.779s0.274 0.89-1.072 0.183c-1.346-0.707-3.764-0.89-5.407-0.639-2.806 0.456-6.548 1.985-10.769 4.198s-10.951 5.087-14.26 4.973c-3.308-0.114-4.723-1.779-5.225-2.92s-0.137-1.163 0.068-1.141c0.57 0.023 0.821 2.030 3.057 2.601s7.164-0.593 14.579-4.403c7.575-3.878 9.993-4.312 12.936-4.631z"></path>
               </svg>
-              <div className='py-sm-3 py-lg-6 col-10 mx-auto'>
-                <p className='top__desc mx-auto text-minion'>Two years ago we both set off to travel the world, having no idea what it had in store for us. Fate and a remote work program brought us together and we have been partners in life and love since. You all have been a part of our journey along the way, and we are so excited to celebrate this special day with you.</p>
-                <a className='py-5 d-inline-flex' href='#scroll'>
-                  <svg className='top__scroll' id='icon-arrow-down' viewBox='0 0 24 24' height="1em" width="1em">
+              <div className="py-sm-3 py-lg-6 col-10 mx-auto">
+                <p className="top__desc mx-auto text-minion">
+                  Two years ago we both set off to travel the world, having no
+                  idea what it had in store for us. Fate and a remote work
+                  program brought us together and we have been partners in life
+                  and love since. You all have been a part of our journey along
+                  the way, and we are so excited to celebrate this special day
+                  with you.
+                </p>
+                <a className="py-5 d-inline-flex" href="#scroll">
+                  <svg
+                    className="top__scroll"
+                    id="icon-arrow-down"
+                    viewBox="0 0 24 24"
+                    height="1em"
+                    width="1em"
+                  >
                     <title>Scroll down for more</title>
                     <path d="M18.293 11.293l-5.293 5.293v-11.586c0-0.552-0.448-1-1-1s-1 0.448-1 1v11.586l-5.293-5.293c-0.391-0.391-1.024-0.391-1.414 0s-0.391 1.024 0 1.414l7 7c0.096 0.096 0.206 0.168 0.324 0.217s0.247 0.076 0.383 0.076c0.13 0 0.261-0.025 0.383-0.076 0.118-0.049 0.228-0.121 0.324-0.217l7-7c0.391-0.391 0.391-1.024 0-1.414s-1.024-0.391-1.414 0z"></path>
                   </svg>
                 </a>
               </div>
             </div>
-            <div className='middle col-10 mx-auto text-center' id='scroll'>
-              <div className='py-6 text-bold text-uppercase text-spacing text-cream'>Dearest friends and family, we would love you to…</div>
-              <div></div>
-              <div></div>
-              <div className='py-6 text-bold text-uppercase text-spacing text-cream'>join us in celebrating where the sea meets the sky!</div>
-            </div>
-            <div className='bottom py-6'>
-              <div className='bottom__heading'>
-                <h2 className='h1 py-6 text-bold text-uppercase text-spacing text-cream text-center'>- Our Story -</h2>
+            <div className="middle col-10 mx-auto text-center" id="scroll">
+              <div className="py-6 text-bold text-uppercase text-spacing text-cream">
+                Dearest friends and family, we would love you to…
               </div>
-              <ol className='timeline text-georgia text-cream mx-auto'>
-                <li className='d-flex flex-items-center py-sm-3 py-lg-6'>
+              <div></div>
+              <div></div>
+              <div className="py-6 text-bold text-uppercase text-spacing text-cream">
+                join us in celebrating where the sea meets the sky!
+              </div>
+            </div>
+            <div className="bottom py-6">
+              <div className="bottom__heading">
+                <h2 className="h1 py-6 text-bold text-uppercase text-spacing text-cream text-center">
+                  - Our Story -
+                </h2>
+              </div>
+              <ol className="timeline text-georgia text-cream mx-auto">
+                <li className="d-flex flex-items-center py-sm-3 py-lg-6">
                   <p>
-                    We first met in <span className='text-bold'>November 2017</span> in Hanoi, Vietnam at the start of our <a className="text-link" href="https://remoteyear.com/itineraries/sisu">Remote Year program</a>. Ashley caught Amanda’s attention early on when she provided her first aid at a cocktail bar.
+                    We first met in{" "}
+                    <span className="text-bold">November 2017</span> in Hanoi,
+                    Vietnam at the start of our{" "}
+                    <a
+                      className="text-link"
+                      href="https://remoteyear.com/itineraries/sisu"
+                    >
+                      Remote Year program
+                    </a>
+                    . Ashley caught Amanda’s attention early on when she
+                    provided her first aid at a cocktail bar.
                   </p>
                 </li>
-                <li className='d-flex flex-items-center py-sm-3 py-lg-6'>
-                  <p>Amanda invited Ashley on a trip to Railay Beach, Thailand over the holidays in <span className='text-bold'>December 2017</span>. After a few magical days of scuba diving, getting caught in the rain, and stargazing together, Ashley made the first move.</p>
+                <li className="d-flex flex-items-center py-sm-3 py-lg-6">
+                  <p>
+                    Amanda invited Ashley on a trip to Railay Beach, Thailand
+                    over the holidays in{" "}
+                    <span className="text-bold">December 2017</span>. After a
+                    few magical days of scuba diving, getting caught in the
+                    rain, and stargazing together, Ashley made the first move.
+                  </p>
                 </li>
-                <li className='d-flex flex-items-center py-sm-3 py-lg-6'>
-                  <p>For the next 10 months we travelled the world. It was full of countless adventures and some major challenges. Needless to say, we fell in love.</p>
+                <li className="d-flex flex-items-center py-sm-3 py-lg-6">
+                  <p>
+                    For the next 10 months we travelled the world. It was full
+                    of countless adventures and some major challenges. Needless
+                    to say, we fell in love.
+                  </p>
                 </li>
-                <li className='d-flex flex-items-center py-sm-3 py-lg-6'>
-                  <p>In <span className='text-bold'>November 2018</span> the Remote Year program wrapped up and we decided to keep traveling on our own.</p>
+                <li className="d-flex flex-items-center py-sm-3 py-lg-6">
+                  <p>
+                    In <span className="text-bold">November 2018</span> the
+                    Remote Year program wrapped up and we decided to keep
+                    traveling on our own.
+                  </p>
                 </li>
-                <li className='d-flex flex-items-center py-sm-3 py-lg-6'>
-                  <p>In <span className='text-bold'>January 2019</span>, we stayed in Cerro Chirripó, Costa Rica. Its jungly flowers and crystal rivers made it a perfect proposal spot. Amanda popped the question after an eventful trail run and Ashley said, “Yes!”</p>
+                <li className="d-flex flex-items-center py-sm-3 py-lg-6">
+                  <p>
+                    In <span className="text-bold">January 2019</span>, we
+                    stayed in Cerro Chirripó, Costa Rica. Its jungly flowers and
+                    crystal rivers made it a perfect proposal spot. Amanda
+                    popped the question after an eventful trail run and Ashley
+                    said, “Yes!”
+                  </p>
                 </li>
-                <li className='d-flex flex-items-center py-sm-3 py-lg-6'>
-                  <p>Ashley waited patiently for her ideal plan to return the proposal. When we travelled to Whistler, Canada in <span className='text-bold'>September 2019</span>, she finally had her chance. She took Amanda on a surprise helicopter ride and proposed atop Rainbow Glacier and Amanda said, "Yes, yes, yes!"</p>
+                <li className="d-flex flex-items-center py-sm-3 py-lg-6">
+                  <p>
+                    Ashley waited patiently for her ideal plan to return the
+                    proposal. When we travelled to Whistler, Canada in{" "}
+                    <span className="text-bold">September 2019</span>, she
+                    finally had her chance. She took Amanda on a surprise
+                    helicopter ride and proposed atop Rainbow Glacier and Amanda
+                    said, "Yes, yes, yes!"
+                  </p>
                 </li>
-                <li className='d-flex flex-items-center py-sm-3 py-lg-6 text-uppercase'>
+                <li className="d-flex flex-items-center py-sm-3 py-lg-6 text-uppercase">
                   <p>The big day</p>
                 </li>
-                <li className='d-flex flex-items-center py-sm-3 py-lg-6'>
+                <li className="d-flex flex-items-center py-sm-3 py-lg-6">
                   <p>Reception in Boston! Details TBD</p>
                 </li>
               </ol>

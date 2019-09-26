@@ -46,6 +46,15 @@ class RSVP extends Component {
     });
   };
 
+  messageChangeHandler = (event, data) => {
+    event.preventDefault();
+    console.log("messageChangeHandler", event, data);
+    data.message = event.target.value;
+    this.setState({
+      updatedForm: data
+    });
+  };
+
   updateRsvpHandler = event => {
     event.preventDefault();
     this.props.onUpdateRSVP(this.props.token, this.state.updatedForm);
@@ -104,10 +113,20 @@ class RSVP extends Component {
     if (!this.props.loading) {
       displayData = (
         <div>
-          <div className='is-open invitation card--alt d-flex flex-items-center flex-justify-center text-center' id='js-invitation'>
-            <div className='f4 text-italic text-minion'>Together with their families</div>
-            <div className='h1 text-bold text-uppercase'>Ashley Ramsay</div>
-            <svg className='invitation__and py-1' viewBox="0 0 29 32" height='1em' width='1em'>
+          <div
+            className="is-open invitation card--alt d-flex flex-items-center flex-justify-center text-center"
+            id="js-invitation"
+          >
+            <div className="f4 text-italic text-minion">
+              Together with their families
+            </div>
+            <div className="h1 text-bold text-uppercase">Ashley Ramsay</div>
+            <svg
+              className="invitation__and py-1"
+              viewBox="0 0 29 32"
+              height="1em"
+              width="1em"
+            >
               <title>AND</title>
               <path d="M8.46 22.923l1.537-0.134-3.907-9.252-1.537 0.134-2.241 9.79 1.551-0.136 0.558-2.708 3.019-0.264zM4.701 19.277l0.607-2.931c0.087-0.419 0.155-0.891 0.164-1.097l0.048 0.176c0.043 0.144 0.105 0.337 0.18 0.54l1.231 3.117z"></path>
               <path d="M23.974 18.139c2.652-0.232 4.361-2.163 4.088-5.278-0.287-3.278-2.296-4.473-5.316-4.209l-2.652 0.232 0.833 9.521zM23.834 16.849l-1.564 0.137-0.606-6.923 1.197-0.105c2.19-0.192 3.529 0.541 3.745 3.017 0.198 2.258-0.882 3.709-2.772 3.875z"></path>
@@ -115,55 +134,123 @@ class RSVP extends Component {
               <path d="M0.883 10.324c-0.221 0.083-0.332 0.329-0.249 0.55s0.329 0.332 0.55 0.249l21.561-8.116c0.464-0.175 0.307-0.868-0.188-0.824-2.971 0.26-5.755-0.254-8.36-1.542-0.211-0.104-0.467-0.018-0.572 0.193s-0.018 0.467 0.193 0.572c1.85 0.915 3.789 1.46 5.813 1.635l0.508 0.036z"></path>
               <path d="M26.971 21.93c0.221-0.083 0.332-0.329 0.249-0.55s-0.329-0.332-0.55-0.249l-21.561 8.116c-0.464 0.175-0.307 0.868 0.188 0.824 2.971-0.26 5.755 0.254 8.36 1.542 0.211 0.104 0.467 0.018 0.572-0.193s0.018-0.467-0.193-0.572c-1.85-0.915-3.789-1.46-5.813-1.635l-0.508-0.036z"></path>
             </svg>
-            <div className='h1 text-bold text-uppercase'>Amanda Cheung</div>
-            <div className='py-3 f3 text-minion lh-condensed'>
+            <div className="h1 text-bold text-uppercase">Amanda Cheung</div>
+            <div className="py-3 f3 text-minion lh-condensed">
               Invite you to celebrate
               <br />
               their marriage
             </div>
-            <svg className='invitation__spacer' id='icon-invitation-spacer' viewBox='0 0 171 32' height='1em' width='1em'>
-              <path d='M131.865 17.764c0 1.964-1.592 3.556-3.556 3.556s-3.556-1.592-3.556-3.556c0-1.964 1.592-3.556 3.556-3.556s3.556 1.592 3.556 3.556z'></path>
-              <path d='M167.421 17.764c0 1.964-1.592 3.556-3.556 3.556s-3.556-1.592-3.556-3.556c0-1.964 1.592-3.556 3.556-3.556s3.556 1.592 3.556 3.556z'></path>
-              <path d='M42.977 17.764c0 1.964-1.592 3.556-3.556 3.556s-3.556-1.592-3.556-3.556c0-1.964 1.592-3.556 3.556-3.556s3.556 1.592 3.556 3.556z'></path>
-              <path d='M7.421 17.764c0 1.964-1.592 3.556-3.556 3.556s-3.556-1.592-3.556-3.556c0-1.964 1.592-3.556 3.556-3.556s3.556 1.592 3.556 3.556z'></path>
-              <path d='M97.672 0.877c-4.939-2.206-11.387-0.171-13.745 4.537-0.022 0.057-0.089 0.057-0.112 0-2.358-4.708-8.806-6.742-13.745-4.537-5.308 2.377-7.856 8.434-3.665 15.599 2.906 4.96 7.979 8.72 16.763 15.279 0.402 0.309 0.983 0.309 1.386 0 8.784-6.56 13.857-10.331 16.763-15.279 4.202-7.165 1.665-13.222-3.643-15.599z'></path>
+            <svg
+              className="invitation__spacer"
+              id="icon-invitation-spacer"
+              viewBox="0 0 171 32"
+              height="1em"
+              width="1em"
+            >
+              <path d="M131.865 17.764c0 1.964-1.592 3.556-3.556 3.556s-3.556-1.592-3.556-3.556c0-1.964 1.592-3.556 3.556-3.556s3.556 1.592 3.556 3.556z"></path>
+              <path d="M167.421 17.764c0 1.964-1.592 3.556-3.556 3.556s-3.556-1.592-3.556-3.556c0-1.964 1.592-3.556 3.556-3.556s3.556 1.592 3.556 3.556z"></path>
+              <path d="M42.977 17.764c0 1.964-1.592 3.556-3.556 3.556s-3.556-1.592-3.556-3.556c0-1.964 1.592-3.556 3.556-3.556s3.556 1.592 3.556 3.556z"></path>
+              <path d="M7.421 17.764c0 1.964-1.592 3.556-3.556 3.556s-3.556-1.592-3.556-3.556c0-1.964 1.592-3.556 3.556-3.556s3.556 1.592 3.556 3.556z"></path>
+              <path d="M97.672 0.877c-4.939-2.206-11.387-0.171-13.745 4.537-0.022 0.057-0.089 0.057-0.112 0-2.358-4.708-8.806-6.742-13.745-4.537-5.308 2.377-7.856 8.434-3.665 15.599 2.906 4.96 7.979 8.72 16.763 15.279 0.402 0.309 0.983 0.309 1.386 0 8.784-6.56 13.857-10.331 16.763-15.279 4.202-7.165 1.665-13.222-3.643-15.599z"></path>
             </svg>
-            <div className='f1 text-minion lh-condensed'>{dates.weddingDate}</div>
-            <div className='f3 text-minion lh-condensed'>at 3 in the afternoon</div>
-            <div className='py-3 f4 text-minion text-italic'>Sea to Sky Gondola | Squamish, Canada</div>
+            <div className="f1 text-minion lh-condensed">
+              {dates.weddingDate}
+            </div>
+            <div className="f3 text-minion lh-condensed">
+              at 3 in the afternoon
+            </div>
+            <div className="py-3 f4 text-minion text-italic">
+              Sea to Sky Gondola | Squamish, Canada
+            </div>
           </div>
-          <div className='is-open rsvp card--alt d-flex flex-items-center flex-justify-center text-center' id='js-rsvp'>
+          <div
+            className="is-open rsvp card--alt d-flex flex-items-center flex-justify-center text-center"
+            id="js-rsvp"
+          >
             <p>{formMessage}</p>
-            <div className='h1 text-bold text-uppercase text-spacing'>R.S.V.P.</div>
-            <div className='f4 text-minion text-italic'>Kindly respond by {dates.rsvpDate}</div>
+            <div className="h1 text-bold text-uppercase text-spacing">
+              R.S.V.P.
+            </div>
+            <div className="f4 text-minion text-italic">
+              Kindly respond by {dates.rsvpDate}
+            </div>
             <form>
-              <div className='py-2'>
-                <div className='d-flex flex-justify-center'>
-                  <span className='px-2 f2 d-flex flex-items-center'>
-                    <input checked={data.attend === "yes"} onChange={() => this.radioChangeHandler("yes", data)} type='radio' name='attending' value='accept' id='attending-accept' />
-                    <label className='px-1 text-minion' htmlFor='attending-accept'>Accept</label>
+              <div className="py-2">
+                <div className="d-flex flex-justify-center">
+                  <span className="px-2 f2 d-flex flex-items-center">
+                    <input
+                      checked={data.attend === "yes"}
+                      onChange={() => this.radioChangeHandler("yes", data)}
+                      type="radio"
+                      name="attending"
+                      value="accept"
+                      id="attending-accept"
+                    />
+                    <label
+                      className="px-1 text-minion"
+                      htmlFor="attending-accept"
+                    >
+                      Accept
+                    </label>
                   </span>
-                  <span className='px-2 f2 d-flex flex-items-center'>
-                    <input checked={data.attend === "no"} onChange={() => this.radioChangeHandler("no", data)} type='radio' name='attending' value='decline' id='attending-decline' />
-                    <label className='px-1 text-minion' htmlFor='attending-decline'>Decline</label>
+                  <span className="px-2 f2 d-flex flex-items-center">
+                    <input
+                      checked={data.attend === "no"}
+                      onChange={() => this.radioChangeHandler("no", data)}
+                      type="radio"
+                      name="attending"
+                      value="decline"
+                      id="attending-decline"
+                    />
+                    <label
+                      className="px-1 text-minion"
+                      htmlFor="attending-decline"
+                    >
+                      Decline
+                    </label>
                   </span>
                 </div>
-                <div className='f3'>
-                  <input disabled={data.attend !== "yes" ? true : false} onChange={e => this.rsvpChangeHandler(e, data)} value={data.rsvpCount} min="0" max={data.guestCount} className='form-number' type='number' name='guest-number' id='guest-number' />
-                  <label className='text-minion' htmlFor='guest-number'>of {data.guestCount} guests attending</label>
+                <div className="f3">
+                  <input
+                    disabled={data.attend !== "yes" ? true : false}
+                    onChange={e => this.rsvpChangeHandler(e, data)}
+                    value={data.rsvpCount}
+                    min="0"
+                    max={data.guestCount}
+                    className="form-number"
+                    type="number"
+                    name="guest-number"
+                    id="guest-number"
+                  />
+                  <label className="text-minion" htmlFor="guest-number">
+                    of {data.guestCount} guests attending
+                  </label>
                 </div>
               </div>
-              <div className='py-2'>
-                <label className='d-flex f4 text-minion' htmlFor='more'>
+              <div className="py-2">
+                <label className="d-flex f4 text-minion" htmlFor="more">
                   Anything else you’d like to add? Please let
                   <br />
                   us know of any dietary requirements.
                 </label>
-                <textarea className='form-textarea col-12' rows='2' name='more' id='more'></textarea>
+                <textarea
+                  onChange={e => this.messageChangeHandler(e, data)}
+                  value={data.message}
+                  className="form-textarea col-12"
+                  rows="2"
+                  name="message"
+                  id="message"
+                ></textarea>
               </div>
               <div>
-                <button disabled={formError} onClick={this.updateRsvpHandler} className='form-submit text-uppercase text-spacing text-bold'>Submit</button>
-                <div className='mx-auto'></div>
+                <button
+                  disabled={formError}
+                  onClick={this.updateRsvpHandler}
+                  className="form-submit text-uppercase text-spacing text-bold"
+                >
+                  Submit
+                </button>
+                <div className="mx-auto"></div>
               </div>
             </form>
           </div>
