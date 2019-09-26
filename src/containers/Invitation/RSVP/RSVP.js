@@ -117,7 +117,7 @@ class RSVP extends Component {
             className="is-open invitation card--alt d-flex flex-items-center flex-justify-center text-center"
             id="js-invitation"
           >
-            <div className="f4 text-italic text-minion">
+            <div className="f4 text-italic text-serif">
               Together with their families
             </div>
             <div className="h1 text-bold text-uppercase">Ashley Ramsay</div>
@@ -135,7 +135,7 @@ class RSVP extends Component {
               <path d="M26.971 21.93c0.221-0.083 0.332-0.329 0.249-0.55s-0.329-0.332-0.55-0.249l-21.561 8.116c-0.464 0.175-0.307 0.868 0.188 0.824 2.971-0.26 5.755 0.254 8.36 1.542 0.211 0.104 0.467 0.018 0.572-0.193s0.018-0.467-0.193-0.572c-1.85-0.915-3.789-1.46-5.813-1.635l-0.508-0.036z"></path>
             </svg>
             <div className="h1 text-bold text-uppercase">Amanda Cheung</div>
-            <div className="py-3 f3 text-minion lh-condensed">
+            <div className="py-3 f3 text-serif lh-condensed">
               Invite you to celebrate
               <br />
               their marriage
@@ -153,13 +153,13 @@ class RSVP extends Component {
               <path d="M7.421 17.764c0 1.964-1.592 3.556-3.556 3.556s-3.556-1.592-3.556-3.556c0-1.964 1.592-3.556 3.556-3.556s3.556 1.592 3.556 3.556z"></path>
               <path d="M97.672 0.877c-4.939-2.206-11.387-0.171-13.745 4.537-0.022 0.057-0.089 0.057-0.112 0-2.358-4.708-8.806-6.742-13.745-4.537-5.308 2.377-7.856 8.434-3.665 15.599 2.906 4.96 7.979 8.72 16.763 15.279 0.402 0.309 0.983 0.309 1.386 0 8.784-6.56 13.857-10.331 16.763-15.279 4.202-7.165 1.665-13.222-3.643-15.599z"></path>
             </svg>
-            <div className="f1 text-minion lh-condensed">
+            <div className="f1 text-serif lh-condensed">
               {dates.weddingDate}
             </div>
-            <div className="f3 text-minion lh-condensed">
+            <div className="f3 text-serif lh-condensed">
               at 3 in the afternoon
             </div>
-            <div className="py-3 f4 text-minion text-italic">
+            <div className="py-3 f4 text-serif text-italic">
               Sea to Sky Gondola | Squamish, Canada
             </div>
           </div>
@@ -171,7 +171,7 @@ class RSVP extends Component {
             <div className="h1 text-bold text-uppercase text-spacing">
               R.S.V.P.
             </div>
-            <div className="f4 text-minion text-italic">
+            <div className="f4 text-serif text-italic">
               Kindly respond by {dates.rsvpDate}
             </div>
             <form>
@@ -187,7 +187,7 @@ class RSVP extends Component {
                       id="attending-accept"
                     />
                     <label
-                      className="px-1 text-minion"
+                      className="px-1 text-serif"
                       htmlFor="attending-accept"
                     >
                       Accept
@@ -203,7 +203,7 @@ class RSVP extends Component {
                       id="attending-decline"
                     />
                     <label
-                      className="px-1 text-minion"
+                      className="px-1 text-serif"
                       htmlFor="attending-decline"
                     >
                       Decline
@@ -222,13 +222,13 @@ class RSVP extends Component {
                     name="guest-number"
                     id="guest-number"
                   />
-                  <label className="text-minion" htmlFor="guest-number">
+                  <label className="text-serif" htmlFor="guest-number">
                     of {data.guestCount} guests attending
                   </label>
                 </div>
               </div>
               <div className="py-2">
-                <label className="d-flex f4 text-minion" htmlFor="more">
+                <label className="d-flex f4 text-serif" htmlFor="more">
                   Anything else you’d like to add? Please let
                   <br />
                   us know of any dietary requirements.

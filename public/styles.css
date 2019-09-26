@@ -100,11 +100,7 @@ body {
   text-align: center;
 }
 
-.text-georgia {
-  font-family: Georgia, 'Times New Roman', Times, serif;
-}
-
-.text-minion {
+.text-serif {
   font-family: Minion Pro, 'Times New Roman', Times, serif;
 }
 
@@ -306,6 +302,7 @@ body {
 }
 
 .main {
+  background-image: url("illustration.svg");
   background-position: center top;
   background-repeat: no-repeat;
   padding-top: 50px;
@@ -313,7 +310,6 @@ body {
 
 @media screen and (max-width: 949px) {
   .main {
-    background-image: url("illo-mobile.jpg");
     background-size: calc(.55 * var(--max-width));
   }
 
@@ -324,7 +320,6 @@ body {
 
 @media screen and (min-width: 950px) {
   .main {
-    background-image: url("illo-desktop.jpg");
     background-size: var(--max-width);
   }
 
@@ -419,7 +414,7 @@ body {
 }
 
 .timeline {
-  font-size: 16px;
+  font-size: 18px;
   list-style-type: none;
   max-width: 650px;
   width: 90%;
