@@ -29,5 +29,28 @@
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+      var love = function() {
+        var loveTrigger = document.getElementById("js-love-trigger");
+        loveTrigger.addEventListener("click", function(e) {
+          e.preventDefault();
+
+          var r_size = Math.floor(Math.random() * 10) + 30;
+          var r_left = Math.floor(Math.random() * 100) + 1;
+          var r_time = Math.floor(Math.random() * 5) + 30;
+
+          $('.hearts').append("<svg class='heart' style='width: " + r_size + "px; height: " + r_size + "px; left:" + r_left + "%; animation: love " + r_time + "s ease'><use xlink:href='#heart'/></svg>");
+          $('.heart').each(function() {
+            var top = $(this).css("top").replace(/[^-\d\.]/g, '');
+            var width = $(this).css("width").replace(/[^-\d\.]/g, '');
+            if (top <= -100 || width >= 150) {
+              $(this).detach();
+            }
+          });
+        });
+      };
+
+      window.onload = function() {love();};
+    </script>
   </body>
 </html>
