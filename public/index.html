@@ -7,6 +7,7 @@
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
+    <link rel="stylesheet" type="text/css" href="styles.css">
     <meta name="theme-color" content="#000000" />
     <!--
       manifest.json provides metadata used when your web app is installed on a
@@ -22,20 +23,34 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-    <title>React App</title>
+    <title>Ashley &amp; Amanda’s Wedding Website</title>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+      var love = function() {
+        var loveTrigger = document.getElementById("js-love-trigger");
+        loveTrigger.addEventListener("click", function(e) {
+          e.preventDefault();
 
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
+          var r_size = Math.floor(Math.random() * 10) + 30;
+          var r_left = Math.floor(Math.random() * 100) + 1;
+          var r_time = Math.floor(Math.random() * 5) + 30;
 
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
+          $('.hearts').append("<svg class='heart' style='width: " + r_size + "px; height: " + r_size + "px; left:" + r_left + "%; animation: love " + r_time + "s ease'><use xlink:href='#heart'/></svg>");
+          $('.heart').each(function() {
+            var top = $(this).css("top").replace(/[^-\d\.]/g, '');
+            var width = $(this).css("width").replace(/[^-\d\.]/g, '');
+            if (top <= -100 || width >= 150) {
+              $(this).detach();
+            }
+          });
+        });
+      };
+
+      window.onload = function() {love();};
+    </script>
   </body>
 </html>

@@ -4,7 +4,6 @@ import { connect } from "react-redux";
 import Button from "../../components/UI/Button/Button";
 import Input from "../../components/UI/Input/Input";
 import Spinner from "../../components/UI/Spinner/Spinner";
-import classes from "./Auth.css";
 
 import * as actions from "../../store/actions/index";
 
@@ -15,7 +14,7 @@ class Auth extends Component {
         elementType: "input",
         elementConfig: {
           type: "email",
-          placeholder: "Email Address"
+          placeholder: "Email"
         },
         value: "",
         validation: {
@@ -26,6 +25,7 @@ class Auth extends Component {
         touched: false
       },
       password: {
+        autocomplete: "new-password",
         elementType: "input",
         elementConfig: {
           type: "password",
@@ -133,13 +133,19 @@ class Auth extends Component {
     }
 
     return (
-      <div className={classes.Auth}>
-        {errorMessage}
-        <form onSubmit={this.submitHandler}>
+      <form onSubmit={this.submitHandler}>
+        <fieldset className='card mx-auto py-4 px-5'>
+          {errorMessage}
+          <legend className='form-legend mx-auto py-3 d-flex flex-justify-center text-minion text-center'>
+            To view your invitation, enter your email and top secret password below:
+          </legend>
           {form}
-          <Button btnType="Success">SIGNIN</Button>
-        </form>
-      </div>
+          <div className='py-4 text-center'>
+            <Button btnType="Success">Submit</Button>
+            <div className='mx-auto'></div>
+          </div>
+        </fieldset>
+      </form>
     );
   }
 }
