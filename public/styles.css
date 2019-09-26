@@ -389,7 +389,8 @@ body {
   display: grid;
   grid-template-columns: auto auto;
   justify-content: center;
-  margin-top: 280px;
+  padding-top: 200px;
+  margin-top: 80px;
 }
 @media screen and (max-width: 949px) {
   .middle {
