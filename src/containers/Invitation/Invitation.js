@@ -66,7 +66,7 @@ class Invitation extends Component {
                 <path d="M46.893 21.498c2.669-0.297 4.882 0.57 6.092 1.779s0.274 0.89-1.072 0.183c-1.346-0.707-3.764-0.89-5.407-0.639-2.806 0.456-6.548 1.985-10.769 4.198s-10.951 5.087-14.26 4.973c-3.308-0.114-4.723-1.779-5.225-2.92s-0.137-1.163 0.068-1.141c0.57 0.023 0.821 2.030 3.057 2.601s7.164-0.593 14.579-4.403c7.575-3.878 9.993-4.312 12.936-4.631z"></path>
               </svg>
               <div className='py-sm-3 py-lg-6 col-10 mx-auto'>
-                <p className='top__desc mx-auto text-serif'>Two years ago we both set off to travel the world, having no idea what it had in store for us. Fate and a remote work program brought us together and we have been partners in life and love since. You all have been a part of our journey along the way, and we are so excited to celebrate this special day with you.</p>
+                <p className='top__desc mx-auto text-minion'>Two years ago we both set off to travel the world, having no idea what it had in store for us. Fate and a remote work program brought us together and we have been partners in life and love since. You all have been a part of our journey along the way, and we are so excited to celebrate this special day with you.</p>
                 <a className='py-5 d-inline-flex' href='#scroll'>
                   <svg className='top__scroll' id='icon-arrow-down' viewBox='0 0 24 24' height="1em" width="1em">
                     <title>Scroll down for more</title>
@@ -85,7 +85,7 @@ class Invitation extends Component {
               <div className='bottom__heading'>
                 <h2 className='h1 py-6 text-bold text-uppercase text-spacing text-cream text-center'>- Our Story -</h2>
               </div>
-              <ol className='timeline text-serif text-cream mx-auto'>
+              <ol className='timeline text-georgia text-cream mx-auto'>
                 <li className='d-flex flex-items-center py-sm-3 py-lg-6'>
                   <p>
                     We first met in November 2017 in Hanoi, Vietnam at the start of our <a className="text-link" href="https://remoteyear.com/itineraries/sisu">Remote Year program</a>. Ashley caught Amanda’s attention early on when she provided her first aid at a cocktail bar.

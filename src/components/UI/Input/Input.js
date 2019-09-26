@@ -56,10 +56,9 @@ const input = props => {
   }
 
   return (
-    <div className={classes.Input}>
-      <label className={classes.Label}>{props.label}</label>
+    <label className='mx-auto'>
       {inputElement}
-    </div>
+    </label>
   );
 };
 
