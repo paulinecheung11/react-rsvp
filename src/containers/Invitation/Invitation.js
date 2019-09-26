@@ -88,23 +88,23 @@ class Invitation extends Component {
               <ol className='timeline text-georgia text-cream mx-auto'>
                 <li className='d-flex flex-items-center py-sm-3 py-lg-6'>
                   <p>
-                    We first met in November 2017 in Hanoi, Vietnam at the start of our <a className="text-link" href="https://remoteyear.com/itineraries/sisu">Remote Year program</a>. Ashley caught Amanda’s attention early on when she provided her first aid at a cocktail bar.
+                    We first met in <span className='text-bold'>November 2017</span> in Hanoi, Vietnam at the start of our <a className="text-link" href="https://remoteyear.com/itineraries/sisu">Remote Year program</a>. Ashley caught Amanda’s attention early on when she provided her first aid at a cocktail bar.
                   </p>
                 </li>
                 <li className='d-flex flex-items-center py-sm-3 py-lg-6'>
-                  <p>Amanda invited Ashley on a trip to Railay Beach, Thailand over the holidays in December 2017. After a few magical days of scuba diving, getting caught in the rain, and stargazing together, Ashley made the first move.</p>
+                  <p>Amanda invited Ashley on a trip to Railay Beach, Thailand over the holidays in <span className='text-bold'>December 2017</span>. After a few magical days of scuba diving, getting caught in the rain, and stargazing together, Ashley made the first move.</p>
                 </li>
                 <li className='d-flex flex-items-center py-sm-3 py-lg-6'>
                   <p>For the next 10 months we travelled the world. It was full of countless adventures and some major challenges. Needless to say, we fell in love.</p>
                 </li>
                 <li className='d-flex flex-items-center py-sm-3 py-lg-6'>
-                  <p>In November 2018 the Remote Year program wrapped up and we decided to keep traveling on our own.</p>
+                  <p>In <span className='text-bold'>November 2018</span> the Remote Year program wrapped up and we decided to keep traveling on our own.</p>
                 </li>
                 <li className='d-flex flex-items-center py-sm-3 py-lg-6'>
-                  <p>In January 2019, we stayed in Cerro Chirripó, Costa Rica. Its jungly flowers and crystal rivers made it a perfect proposal spot. Amanda popped the question after an eventful trail run and Ashley said, “Yes!”</p>
+                  <p>In <span className='text-bold'>January 2019</span>, we stayed in Cerro Chirripó, Costa Rica. Its jungly flowers and crystal rivers made it a perfect proposal spot. Amanda popped the question after an eventful trail run and Ashley said, “Yes!”</p>
                 </li>
                 <li className='d-flex flex-items-center py-sm-3 py-lg-6'>
-                  <p>Ashley waited patiently for her ideal plan to return the proposal. When we travelled to Whistler, Canada in September 2019, she finally had her chance. She took Amanda on a surprise helicopter ride and proposed atop Rainbow Glacier and Amanda said, "Yes, yes, yes!"</p>
+                  <p>Ashley waited patiently for her ideal plan to return the proposal. When we travelled to Whistler, Canada in <span className='text-bold'>September 2019</span>, she finally had her chance. She took Amanda on a surprise helicopter ride and proposed atop Rainbow Glacier and Amanda said, "Yes, yes, yes!"</p>
                 </li>
                 <li className='d-flex flex-items-center py-sm-3 py-lg-6 text-uppercase'>
                   <p>The big day</p>
