@@ -25,6 +25,13 @@ class Invitation extends Component {
             <span>Amanda</span>
           </div>
           <div className="main">
+            <div className="illustrations">
+              <img className="illustration rellax" data-rellax-speed="-10" src="/sky.svg" alt="" />
+              <img className="illustration rellax" data-rellax-speed="-5" src="/mountains.svg" alt="" />
+              <img className="illustration rellax" data-rellax-speed="-1" src="/lodge.svg" alt="" />
+              <img className="illustration rellax" data-rellax-speed="1" src="/purple.svg" alt="" />
+              <img className="illustration rellax" data-rellax-speed="2" src="/green.svg" alt="" />
+            </div>
             <div className="hearts" id="js-love"></div>
             <svg
               className="cloud cloud--top"
@@ -48,12 +55,27 @@ class Invitation extends Component {
                 d="M289.928 32c-28.145 0-27.759-12.145-43.32-12.145-11.053 0-13.164 6.013-21.995 6.013-10.059 0-20.495-14.687-44.53-14.687-20.748 0-24.731 9.374-41.288 9.374-16 0-35.688-20.555-74.024-20.555-41.831 0-64.771 23.057-64.771 32z"
               ></path>
             </svg>
-            <svg className="birds" viewBox="0 0 126 32">
-              <path d="M8.043 1.686c0.301 0.251 0.461 0.449 0.544 0.633 0.133-0.295 0.41-0.624 0.828-1.084 0.697-0.764 1.866-1.27 2.433-1.234l-3.189 3.255-2.836-2.374c0.569-0.105 1.436 0.149 2.219 0.804z"></path>
-              <path d="M3.054 5.042c-0.035 0.099-0.055 0.212-0.055 0.331 0 0.069 0.007 0.137 0.020 0.202l-0.001-0.007c-0.214-0.111-0.531-0.192-0.994-0.293-0.768-0.168-1.701-0.033-2.023 0.184l3.404 0.636 0.613-2.251c-0.391 0.141-0.793 0.575-0.963 1.199z"></path>
-              <path d="M10.548 23.344c-0.133 0.115-0.235 0.263-0.293 0.431l-0.002 0.007c-0.13-0.201-0.364-0.433-0.715-0.751-0.581-0.529-1.456-0.88-1.844-0.854l2.631 2.253 1.656-1.644c-0.409-0.073-0.976 0.107-1.433 0.557z"></path>
-              <path d="M122.392 27.592c0.301 0.251 0.461 0.449 0.545 0.633 0.132-0.295 0.409-0.624 0.828-1.084 0.696-0.764 1.865-1.27 2.431-1.232l-3.188 3.253-2.837-2.374c0.57-0.105 1.437 0.149 2.22 0.804z"></path>
-              <path d="M117.404 30.948c-0.035 0.098-0.056 0.211-0.056 0.329 0 0.070 0.007 0.138 0.021 0.203l-0.001-0.006c-0.215-0.111-0.532-0.192-0.995-0.293-0.768-0.168-1.701-0.033-2.023 0.184l3.404 0.636 0.612-2.251c-0.391 0.141-0.793 0.575-0.962 1.199z"></path>
+            <svg
+              className="cloud cloud--bottom"
+              viewBox="0 0 290 32"
+              width="933"
+              height="103"
+            >
+              <path
+                fill="#ffefde"
+                d="M289.928 32c-28.145 0-27.759-12.145-43.32-12.145-11.053 0-13.164 6.013-21.995 6.013-10.059 0-20.495-14.687-44.53-14.687-20.748 0-24.731 9.374-41.288 9.374-16 0-35.688-20.555-74.024-20.555-41.831 0-64.771 23.057-64.771 32z"
+              ></path>
+            </svg>
+            <svg className="birds birds-left" viewBox="0 0 8 33" width="185" height="828">
+              <path d="M1.711 30.019c-0.135 0.113-0.207 0.202-0.245 0.284-0.059-0.133-0.184-0.281-0.372-0.488-0.313-0.344-0.838-0.571-1.093-0.554l1.433 1.463 1.275-1.067c-0.256-0.047-0.646 0.067-0.998 0.362z"></path>
+              <path d="M3.953 31.527c0.016 0.044 0.025 0.095 0.025 0.148 0 0.031-0.003 0.062-0.009 0.092l0.001-0.003c0.097-0.051 0.239-0.087 0.447-0.132 0.345-0.075 0.765-0.015 0.91 0.082l-1.531 0.286-0.274-1.012c0.175 0.064 0.356 0.26 0.432 0.539z"></path>
+              <path d="M6.357 0.758c0.135 0.113 0.207 0.202 0.245 0.284 0.060-0.133 0.184-0.28 0.372-0.488 0.313-0.344 0.838-0.571 1.093-0.555l-1.431 1.464-1.278-1.067c0.257-0.047 0.646 0.067 0.999 0.362z"></path>
+              <path d="M4.339 2.267c-0.016 0.044-0.025 0.095-0.025 0.148 0 0.031 0.003 0.062 0.009 0.091l-0-0.003c-0.097-0.050-0.239-0.086-0.447-0.132-0.345-0.075-0.765-0.015-0.909 0.083l1.53 0.286 0.275-1.012c-0.176 0.063-0.357 0.259-0.433 0.539z"></path>
+              <path d="M2.743 10.495c-0.059 0.052-0.105 0.118-0.131 0.194l-0.001 0.003c-0.059-0.090-0.164-0.195-0.321-0.338-0.261-0.238-0.655-0.395-0.829-0.384l1.182 1.013 0.744-0.739c-0.181-0.033-0.437 0.048-0.643 0.251z"></path>
+            </svg>
+            <svg className="birds birds-right" viewBox="0 0 62 32" width="118" height="61">
+              <path d="M42.234 8.853c1.582 1.318 2.42 2.357 2.858 3.322 0.696-1.55 2.151-3.274 4.35-5.694 3.659-4.013 9.797-6.67 12.776-6.48l-16.746 17.094-14.89-12.465c2.99-0.554 7.54 0.78 11.653 4.223z"></path>
+              <path d="M16.034 26.474c-0.183 0.518-0.288 1.116-0.288 1.738 0 0.363 0.036 0.717 0.104 1.060l-0.006-0.034c-1.123-0.585-2.789-1.007-5.22-1.54-4.034-0.881-8.932-0.174-10.624 0.965l17.874 3.338 3.216-11.821c-2.051 0.738-4.165 3.021-5.057 6.296z"></path>
             </svg>
             <div className="top py-sm-3 py-lg-6 text-center">
               <h1 className="py-sm-3 py-lg-6 text-bold text-uppercase text-spacing">
@@ -86,7 +108,7 @@ class Invitation extends Component {
                 <path d="M46.893 21.498c2.669-0.297 4.882 0.57 6.092 1.779s0.274 0.89-1.072 0.183c-1.346-0.707-3.764-0.89-5.407-0.639-2.806 0.456-6.548 1.985-10.769 4.198s-10.951 5.087-14.26 4.973c-3.308-0.114-4.723-1.779-5.225-2.92s-0.137-1.163 0.068-1.141c0.57 0.023 0.821 2.030 3.057 2.601s7.164-0.593 14.579-4.403c7.575-3.878 9.993-4.312 12.936-4.631z"></path>
               </svg>
               <div className="py-sm-3 py-lg-6 col-10 mx-auto">
-                <p className="top__desc mx-auto text-minion">
+                <p className="top__desc mx-auto text-serif">
                   Two years ago we both set off to travel the world, having no
                   idea what it had in store for us. Fate and a remote work
                   program brought us together and we have been partners in life
@@ -124,7 +146,7 @@ class Invitation extends Component {
                   - Our Story -
                 </h2>
               </div>
-              <ol className="timeline text-georgia text-cream mx-auto">
+              <ol className="timeline text-serif text-cream mx-auto">
                 <li className="d-flex flex-items-center py-sm-3 py-lg-6">
                   <p>
                     We first met in{" "}
@@ -182,7 +204,7 @@ class Invitation extends Component {
                     said, "Yes, yes, yes!"
                   </p>
                 </li>
-                <li className="d-flex flex-items-center py-sm-3 py-lg-6 text-uppercase">
+                <li className="d-flex flex-items-center py-sm-3 py-lg-6 text-uppercase text-bold">
                   <p>The big day</p>
                 </li>
                 <li className="d-flex flex-items-center py-sm-3 py-lg-6">
@@ -190,11 +212,16 @@ class Invitation extends Component {
                 </li>
               </ol>
             </div>
-            {this.props.isauthenticated ? (
-              <Route path={this.props.match.url} component={RSVP} />
-            ) : (
-              <Route path={this.props.match.url} component={Auth} />
-            )}
+            <Route
+              path={this.props.match.url}
+              render={props => <Auth {...props} />}
+            />
+            {this.props.isauthenticated &&
+              <Route
+                path={this.props.match.url}
+                render={props => <RSVP {...props} />}
+              />
+            }
           </div>
         </div>
       </div>

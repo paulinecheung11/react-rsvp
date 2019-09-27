@@ -100,11 +100,7 @@ body {
   text-align: center;
 }
 
-.text-georgia {
-  font-family: Georgia, 'Times New Roman', Times, serif;
-}
-
-.text-minion {
+.text-serif {
   font-family: Minion Pro, 'Times New Roman', Times, serif;
 }
 
@@ -305,43 +301,74 @@ body {
   width: 1em;
 }
 
+.illustration {
+  position: absolute;
+  top: var(--border-height);
+  z-index: -1;
+}
+
 .main {
-  background-position: center top;
-  background-repeat: no-repeat;
   padding-top: 50px;
 }
 
+.cloud {
+  position: absolute;
+}
+
+.cloud--top {
+  animation: move 150s infinite -30s linear;
+  left: -90%;
+  max-width: 1504px;
+  width: 100vw;
+}
+
+.cloud--middle {
+  animation: move 250s infinite -60s linear;
+  left: -140%;
+  max-width: 752px;
+  width: 80vw;
+}
+
+.cloud--bottom {
+  animation: move 250s infinite -45s linear;
+  left: 20%;
+  max-width: 933px;
+  width: 90vw;
+}
+
 @media screen and (max-width: 949px) {
-  .main {
-    background-image: url("illo-mobile.jpg");
-    background-size: calc(.55 * var(--max-width));
+  .illustration {
+    left: calc(50% - .55 * var(--max-width) / 2);
+    width: calc(.55 * var(--max-width));
+  }
+  .cloud--top {
+    top: 3vh;
   }
 
-  .cloud {
-    display: none;
+  .cloud--middle {
+    top: 28vh;
+  }
+
+  .cloud--bottom {
+    top: 40vh;
   }
 }
 
 @media screen and (min-width: 950px) {
-  .main {
-    background-image: url("illo-desktop.jpg");
-    background-size: var(--max-width);
+  .illustration {
+    left: calc(50% - var(--max-width) / 2);
+    width: var(--max-width);
   }
-
-  .cloud {
-    position: absolute;
-  }
-
   .cloud--top {
-    animation: move 150s infinite -30s linear;
-    left: -100%;
-    top: 150px;
+    top: 12vh;
   }
 
   .cloud--middle {
-    animation: move 250s infinite -60s linear;
-    left: -100%;
-    top: 460px;
+    top: 48vh;
+  }
+
+  .cloud--bottom {
+    top: 88vh;
   }
 }
 
@@ -357,11 +384,16 @@ body {
 }
 @media screen and (min-width: 1000px) {
   .birds {
-    box-sizing: border-box;
     fill: #904a85;
-    padding: 100px;
     position: absolute;
-    width: calc(100% - 2 * var(--border-height));
+  }
+  .birds-left {
+    left: 146px;
+    top: 138px;
+  }
+  .birds-right {
+    right: 170px;
+    top: 470px;
   }
 }
 
@@ -390,7 +422,7 @@ body {
   grid-template-columns: auto auto;
   justify-content: center;
   padding-top: 200px;
-  margin-top: 80px;
+  margin-top: 120px;
 }
 @media screen and (max-width: 949px) {
   .middle {
@@ -419,7 +451,7 @@ body {
 }
 
 .timeline {
-  font-size: 16px;
+  font-size: 18px;
   list-style-type: none;
   max-width: 650px;
   width: 90%;

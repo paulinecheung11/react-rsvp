@@ -136,7 +136,7 @@ class Auth extends Component {
       <form onSubmit={this.submitHandler}>
         <fieldset className='card mx-auto py-4 px-5'>
           {errorMessage}
-          <legend className='form-legend mx-auto py-3 d-flex flex-justify-center text-minion text-center'>
+          <legend className='form-legend mx-auto py-3 d-flex flex-justify-center text-serif text-center'>
             To view your invitation, enter your email and top secret password below:
           </legend>
           {form}

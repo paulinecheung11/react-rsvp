@@ -8,7 +8,7 @@ class App extends Component {
   render() {
     return (
       <Layout>
-        <Route path="/" component={Invitation} />
+        <Route path="/" render={props => <Invitation {...props} />} />
       </Layout>
     );
   }
