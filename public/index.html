@@ -29,6 +29,7 @@
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/rellax/1.10.0/rellax.min.js"></script>
     <script>
       var love = function() {
         var loveTrigger = document.getElementById("js-love-trigger");
@@ -50,7 +51,10 @@
         });
       };
 
-      window.onload = function() {love();};
+      window.onload = function() {
+        love();
+        var rellax = new Rellax('.rellax');
+      };
     </script>
   </body>
 </html>
