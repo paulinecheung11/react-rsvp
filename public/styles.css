@@ -25,6 +25,7 @@ footer, header, hgroup, menu, nav, section {
 
 @font-face {
   font-family: "Edmondsans-Bold";
+  font-display: swap;
   src: url("edmondsans-bold-webfont.woff2") format("woff2"),
        url("edmondsans-bold-webfont.woff") format("woff");
 }
