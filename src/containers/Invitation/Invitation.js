@@ -212,11 +212,10 @@ class Invitation extends Component {
                 </li>
               </ol>
             </div>
-            {this.props.isauthenticated ? (
+            <Route path={this.props.match.url} component={Auth} />
+            {this.props.isauthenticated &&
               <Route path={this.props.match.url} component={RSVP} />
-            ) : (
-              <Route path={this.props.match.url} component={Auth} />
-            )}
+            }
           </div>
         </div>
       </div>

@@ -96,7 +96,7 @@ class RSVP extends Component {
       } else {
         formError = true;
 
-        formMessage = "Guest missing.  Please contact Amanda/Ashley";
+        formMessage = "Guest missing. Please contact Amanda/Ashley";
       }
     } else {
       data = this.state.updatedForm;
