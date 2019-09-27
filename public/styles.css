@@ -104,14 +104,23 @@ body {
   font-family: Minion Pro, 'Times New Roman', Times, serif;
 }
 
+.text-nunito {
+  font-family: 'Nunito Sans', sans-serif;
+}
+
 .text-italic {
   font-style: italic;
 }
 
 .text-link {
   color: inherit;
-  text-decoration-style: wavy;
-  text-decoration-color: var(--color-pink);
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+.text-link:hover,
+.text-link:focus {
+  text-decoration: none;
 }
 
 .lh-default {

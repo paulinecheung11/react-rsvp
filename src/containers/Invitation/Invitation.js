@@ -146,7 +146,7 @@ class Invitation extends Component {
                   - Our Story -
                 </h2>
               </div>
-              <ol className="timeline text-serif text-cream mx-auto">
+              <ol className="timeline text-nunito text-cream mx-auto">
                 <li className="d-flex flex-items-center py-sm-3 py-lg-6">
                   <p>
                     We first met in{" "}

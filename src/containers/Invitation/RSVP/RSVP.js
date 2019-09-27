@@ -31,9 +31,13 @@ class RSVP extends Component {
 
   rsvpChangeHandler = (event, data) => {
     event.preventDefault();
-    if (event.target.value > data.guestCount || event.target.value < 0) {
+    if (event.target.value > data.guestCount) {
       this.setState({
-        updatedError: "Guests must be between 0 and " + data.guestCount
+        updatedError: "Guest count exceeded"
+      });
+    } else if (event.target.value < 0) {
+      this.setState({
+        updatedError: "Guest count must be more than 0"
       });
     } else {
       this.setState({
