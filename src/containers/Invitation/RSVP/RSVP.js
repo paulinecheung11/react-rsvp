@@ -124,7 +124,7 @@ class RSVP extends Component {
             <div className="f4 text-italic text-serif">
               Together with their families
             </div>
-            <div className="h1 text-bold text-uppercase">Ashley Ramsay</div>
+            <div className="h1 text-edmondsans text-uppercase">Ashley Ramsay</div>
             <svg
               className="invitation__and py-1"
               viewBox="0 0 29 32"
@@ -138,7 +138,7 @@ class RSVP extends Component {
               <path d="M0.883 10.324c-0.221 0.083-0.332 0.329-0.249 0.55s0.329 0.332 0.55 0.249l21.561-8.116c0.464-0.175 0.307-0.868-0.188-0.824-2.971 0.26-5.755-0.254-8.36-1.542-0.211-0.104-0.467-0.018-0.572 0.193s-0.018 0.467 0.193 0.572c1.85 0.915 3.789 1.46 5.813 1.635l0.508 0.036z"></path>
               <path d="M26.971 21.93c0.221-0.083 0.332-0.329 0.249-0.55s-0.329-0.332-0.55-0.249l-21.561 8.116c-0.464 0.175-0.307 0.868 0.188 0.824 2.971-0.26 5.755 0.254 8.36 1.542 0.211 0.104 0.467 0.018 0.572-0.193s0.018-0.467-0.193-0.572c-1.85-0.915-3.789-1.46-5.813-1.635l-0.508-0.036z"></path>
             </svg>
-            <div className="h1 text-bold text-uppercase">Amanda Cheung</div>
+            <div className="h1 text-edmondsans text-uppercase">Amanda Cheung</div>
             <div className="py-3 f3 text-serif lh-condensed">
               Invite you to celebrate
               <br />
@@ -172,7 +172,7 @@ class RSVP extends Component {
             id="js-rsvp"
           >
             <p>{formMessage}</p>
-            <div className="h1 text-bold text-uppercase text-spacing">
+            <div className="h1 text-edmondsans text-uppercase text-spacing">
               R.S.V.P.
             </div>
             <div className="f4 text-serif text-italic">
@@ -221,7 +221,7 @@ class RSVP extends Component {
                     value={data.rsvpCount}
                     min="0"
                     max={data.guestCount}
-                    className="form-number"
+                    className="form-number text-nunito"
                     type="number"
                     name="guest-number"
                     id="guest-number"
@@ -240,7 +240,7 @@ class RSVP extends Component {
                 <textarea
                   onChange={e => this.messageChangeHandler(e, data)}
                   value={data.message}
-                  className="form-textarea col-12"
+                  className="form-textarea col-12 text-nunito"
                   rows="2"
                   name="message"
                   id="message"
@@ -250,7 +250,7 @@ class RSVP extends Component {
                 <button
                   disabled={formError}
                   onClick={this.updateRsvpHandler}
-                  className="form-submit text-uppercase text-spacing text-bold"
+                  className="form-submit text-uppercase text-spacing text-edmondsans"
                 >
                   Submit
                 </button>
