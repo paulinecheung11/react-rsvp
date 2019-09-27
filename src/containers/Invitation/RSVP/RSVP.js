@@ -45,7 +45,7 @@ class RSVP extends Component {
       });
     } else if (event.target.value < 1) {
       this.setState({
-        updatedError: "Guest count must be more than 0"
+        updatedError: "Invalid guest count"
       });
     } else {
       this.setState({
@@ -78,7 +78,9 @@ class RSVP extends Component {
   };
 
   render() {
-    let formMessage = null,
+    let data = null,
+      errorMessage = null,
+      formMessage = null,
       formError = null,
       displayData = null,
       eventInfo = null,

@@ -135,7 +135,6 @@ class Auth extends Component {
     return (
       <form onSubmit={this.submitHandler}>
         <fieldset className='card mx-auto py-4 px-5'>
-          {errorMessage}
           <legend className='form-legend mx-auto py-3 d-flex flex-justify-center text-serif text-center'>
             To view your invitation, enter your email and top secret password below:
           </legend>
@@ -143,6 +142,7 @@ class Auth extends Component {
           <div className='py-4 text-center'>
             <Button btnType="Success">Submit</Button>
             <div className='mx-auto'></div>
+            <p className='form-error text-center'>{errorMessage}</p>
           </div>
         </fieldset>
       </form>
