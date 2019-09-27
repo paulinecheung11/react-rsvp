@@ -15,9 +15,9 @@ class Invitation extends Component {
         </svg>
         <div className="mainframe mx-auto">
           <div className="frame"></div>
-          <div className="frame__footer d-flex flex-items-center flex-justify-center col-12 text-uppercase text-bold text-cream text-spacing">
+          <div className="frame__footer d-flex flex-items-center flex-justify-center col-12 text-uppercase text-edmondsans text-cream text-spacing">
             <span>Ashley</span>
-            <button className="frame__icon px-4 d-flex" id="js-love-trigger">
+            <button className="frame__icon px-4 d-flex" id="js-love-trigger" aria-label="loves">
               <svg>
                 <use xlinkHref="#heart" />
               </svg>
@@ -29,43 +29,43 @@ class Invitation extends Component {
               <img className="illustration rellax" data-rellax-speed="-10" src="/sky.svg" alt="" />
               <img className="illustration rellax" data-rellax-speed="-5" src="/mountains.svg" alt="" />
               <img className="illustration rellax" data-rellax-speed="-1" src="/lodge.svg" alt="" />
+              <svg
+                className="cloud cloud--top"
+                viewBox="0 0 290 32"
+                width="1504"
+                height="166"
+              >
+                <path
+                  fill="#ffefde"
+                  d="M289.928 32c-28.145 0-27.759-12.145-43.32-12.145-11.053 0-13.164 6.013-21.995 6.013-10.059 0-20.495-14.687-44.53-14.687-20.748 0-24.731 9.374-41.288 9.374-16 0-35.688-20.555-74.024-20.555-41.831 0-64.771 23.057-64.771 32z"
+                ></path>
+              </svg>
+              <svg
+                className="cloud cloud--middle"
+                viewBox="0 0 290 32"
+                width="752"
+                height="83"
+              >
+                <path
+                  fill="#ffefde"
+                  d="M289.928 32c-28.145 0-27.759-12.145-43.32-12.145-11.053 0-13.164 6.013-21.995 6.013-10.059 0-20.495-14.687-44.53-14.687-20.748 0-24.731 9.374-41.288 9.374-16 0-35.688-20.555-74.024-20.555-41.831 0-64.771 23.057-64.771 32z"
+                ></path>
+              </svg>
+              <svg
+                className="cloud cloud--bottom"
+                viewBox="0 0 290 32"
+                width="933"
+                height="103"
+              >
+                <path
+                  fill="#ffefde"
+                  d="M289.928 32c-28.145 0-27.759-12.145-43.32-12.145-11.053 0-13.164 6.013-21.995 6.013-10.059 0-20.495-14.687-44.53-14.687-20.748 0-24.731 9.374-41.288 9.374-16 0-35.688-20.555-74.024-20.555-41.831 0-64.771 23.057-64.771 32z"
+                ></path>
+              </svg>
               <img className="illustration rellax" data-rellax-speed="1" src="/purple.svg" alt="" />
               <img className="illustration rellax" data-rellax-speed="2" src="/green.svg" alt="" />
             </div>
             <div className="hearts" id="js-love"></div>
-            <svg
-              className="cloud cloud--top"
-              viewBox="0 0 290 32"
-              width="1504"
-              height="166"
-            >
-              <path
-                fill="#ffefde"
-                d="M289.928 32c-28.145 0-27.759-12.145-43.32-12.145-11.053 0-13.164 6.013-21.995 6.013-10.059 0-20.495-14.687-44.53-14.687-20.748 0-24.731 9.374-41.288 9.374-16 0-35.688-20.555-74.024-20.555-41.831 0-64.771 23.057-64.771 32z"
-              ></path>
-            </svg>
-            <svg
-              className="cloud cloud--middle"
-              viewBox="0 0 290 32"
-              width="752"
-              height="83"
-            >
-              <path
-                fill="#ffefde"
-                d="M289.928 32c-28.145 0-27.759-12.145-43.32-12.145-11.053 0-13.164 6.013-21.995 6.013-10.059 0-20.495-14.687-44.53-14.687-20.748 0-24.731 9.374-41.288 9.374-16 0-35.688-20.555-74.024-20.555-41.831 0-64.771 23.057-64.771 32z"
-              ></path>
-            </svg>
-            <svg
-              className="cloud cloud--bottom"
-              viewBox="0 0 290 32"
-              width="933"
-              height="103"
-            >
-              <path
-                fill="#ffefde"
-                d="M289.928 32c-28.145 0-27.759-12.145-43.32-12.145-11.053 0-13.164 6.013-21.995 6.013-10.059 0-20.495-14.687-44.53-14.687-20.748 0-24.731 9.374-41.288 9.374-16 0-35.688-20.555-74.024-20.555-41.831 0-64.771 23.057-64.771 32z"
-              ></path>
-            </svg>
             <svg className="birds birds-left" viewBox="0 0 8 33" width="185" height="828">
               <path d="M1.711 30.019c-0.135 0.113-0.207 0.202-0.245 0.284-0.059-0.133-0.184-0.281-0.372-0.488-0.313-0.344-0.838-0.571-1.093-0.554l1.433 1.463 1.275-1.067c-0.256-0.047-0.646 0.067-0.998 0.362z"></path>
               <path d="M3.953 31.527c0.016 0.044 0.025 0.095 0.025 0.148 0 0.031-0.003 0.062-0.009 0.092l0.001-0.003c0.097-0.051 0.239-0.087 0.447-0.132 0.345-0.075 0.765-0.015 0.91 0.082l-1.531 0.286-0.274-1.012c0.175 0.064 0.356 0.26 0.432 0.539z"></path>
@@ -78,7 +78,7 @@ class Invitation extends Component {
               <path d="M16.034 26.474c-0.183 0.518-0.288 1.116-0.288 1.738 0 0.363 0.036 0.717 0.104 1.060l-0.006-0.034c-1.123-0.585-2.789-1.007-5.22-1.54-4.034-0.881-8.932-0.174-10.624 0.965l17.874 3.338 3.216-11.821c-2.051 0.738-4.165 3.021-5.057 6.296z"></path>
             </svg>
             <div className="top py-sm-3 py-lg-6 text-center">
-              <h1 className="py-sm-3 py-lg-6 text-bold text-uppercase text-spacing">
+              <h1 className="py-sm-3 py-lg-6 text-edmondsans text-uppercase text-spacing">
                 - We are getting -
               </h1>
               <svg
@@ -131,18 +131,18 @@ class Invitation extends Component {
               </div>
             </div>
             <div className="middle col-10 mx-auto text-center" id="scroll">
-              <div className="py-6 text-bold text-uppercase text-spacing text-cream">
+              <div className="py-6 text-edmondsans text-uppercase text-spacing text-cream">
                 Dearest friends and family, we would love you to…
               </div>
               <div></div>
               <div></div>
-              <div className="py-6 text-bold text-uppercase text-spacing text-cream">
+              <div className="py-6 text-edmondsans text-uppercase text-spacing text-cream">
                 join us in celebrating where the sea meets the sky!
               </div>
             </div>
             <div className="bottom py-6">
               <div className="bottom__heading">
-                <h2 className="h1 py-6 text-bold text-uppercase text-spacing text-cream text-center">
+                <h2 className="h1 py-6 text-edmondsans text-uppercase text-spacing text-cream text-center">
                   - Our Story -
                 </h2>
               </div>
