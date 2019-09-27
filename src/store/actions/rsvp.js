@@ -28,22 +28,22 @@ export const RSVPStart = () => {
   };
 };
 
-export const fetchEventDatesStart = () => {
+export const fetchEventStart = () => {
   return {
-    type: actionTypes.FETCH_EVENT_DATES_START
+    type: actionTypes.FETCH_EVENT_START
   };
 };
 
-export const fetchEventDatesSuccess = eventDates => {
+export const fetchEventSuccess = event => {
   return {
-    type: actionTypes.FETCH_EVENT_DATES_SUCCESS,
-    eventDates: eventDates
+    type: actionTypes.FETCH_EVENT_SUCCESS,
+    event: event
   };
 };
 
-export const fetchEventDatesFail = error => {
+export const fetchEventFail = error => {
   return {
-    type: actionTypes.FETCH_EVENT_DATES_FAIL,
+    type: actionTypes.FETCH_EVENT_FAIL,
     error: error
   };
 };
@@ -71,16 +71,17 @@ export const fetchRSVP = (token, email) => {
   };
 };
 
-export const fetchEventDates = token => {
+export const fetchEvent = token => {
   return dispatch => {
-    dispatch(fetchEventDatesStart());
+    dispatch(fetchEventStart());
     axios
-      .get("/eventDates.json?auth=" + token)
+      .get("/event.json?auth=" + token)
       .then(res => {
-        dispatch(fetchEventDatesSuccess(res.data));
+        console.log("fetchEvent", res);
+        dispatch(fetchEventSuccess(res.data));
       })
       .catch(err => {
-        dispatch(fetchEventDatesFail(err.response.data.error));
+        dispatch(fetchEventFail(err.response.data.error));
       });
   };
 };

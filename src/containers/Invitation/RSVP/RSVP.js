@@ -12,7 +12,8 @@ class RSVP extends Component {
   };
 
   componentDidMount() {
-    this.props.onFetchEventDates(this.props.token);
+    console.log("token", this.props.token);
+    this.props.onFetchEvent(this.props.token);
     this.props.onFetchRSVP(this.props.token, this.props.email);
   }
 
@@ -72,12 +73,18 @@ class RSVP extends Component {
     let data = null,
       formMessage = null,
       formError = null,
-      displayData = null;
+      displayData = null,
+      eventInfo = null,
+      isOpen = null;
 
-    let dates = {
-      ...this.props.eventDates
-    };
+    if (this.props.isAuthenticated) {
+      eventInfo = {
+        ...this.props.event
+      };
+      isOpen = "is-open";
+    }
 
+    console.log("eventInfo", eventInfo, isOpen);
     if (!this.state.updatedForm) {
       data = {
         ...this.props.rsvpData
@@ -118,7 +125,7 @@ class RSVP extends Component {
       displayData = (
         <div>
           <div
-            className="is-open invitation card--alt d-flex flex-items-center flex-justify-center text-center"
+            className={`${isOpen} invitation card--alt d-flex flex-items-center flex-justify-center text-center`}
             id="js-invitation"
           >
             <div className="f4 text-italic text-serif">
@@ -158,7 +165,7 @@ class RSVP extends Component {
               <path d="M97.672 0.877c-4.939-2.206-11.387-0.171-13.745 4.537-0.022 0.057-0.089 0.057-0.112 0-2.358-4.708-8.806-6.742-13.745-4.537-5.308 2.377-7.856 8.434-3.665 15.599 2.906 4.96 7.979 8.72 16.763 15.279 0.402 0.309 0.983 0.309 1.386 0 8.784-6.56 13.857-10.331 16.763-15.279 4.202-7.165 1.665-13.222-3.643-15.599z"></path>
             </svg>
             <div className="f1 text-serif lh-condensed">
-              {dates.weddingDate}
+              {eventInfo.weddingDate}
             </div>
             <div className="f3 text-serif lh-condensed">
               at 3 in the afternoon
@@ -168,15 +175,15 @@ class RSVP extends Component {
             </div>
           </div>
           <div
-            className="is-open rsvp card--alt d-flex flex-items-center flex-justify-center text-center"
+            className={`${isOpen} rsvp card--alt d-flex flex-items-center flex-justify-center text-center`}
             id="js-rsvp"
           >
             <p>{formMessage}</p>
             <div className="h1 text-bold text-uppercase text-spacing">
-              R.S.V.P.
+              R.S.V.P
             </div>
             <div className="f4 text-serif text-italic">
-              Kindly respond by {dates.rsvpDate}
+              Kindly respond by {eventInfo.rsvpDate}
             </div>
             <form>
               <div className="py-2">
@@ -269,7 +276,8 @@ const mapStateToProps = state => {
   return {
     token: state.auth.token,
     email: state.auth.email,
-    eventDates: state.rsvp.eventDates,
+    isAuthenticated: state.auth.token !== null,
+    event: state.rsvp.event,
     rsvpData: state.rsvp.rsvpData,
     loading: state.rsvp.loading,
     error: state.rsvp.error,
@@ -280,7 +288,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     onFetchRSVP: (token, email) => dispatch(actions.fetchRSVP(token, email)),
-    onFetchEventDates: token => dispatch(actions.fetchEventDates(token)),
+    onFetchEvent: token => dispatch(actions.fetchEvent(token)),
     onUpdateRSVP: (token, updatedData) =>
       dispatch(actions.updateRSVP(token, updatedData))
   };

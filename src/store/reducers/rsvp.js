@@ -35,20 +35,20 @@ const RSVPFail = (state, action) => {
   });
 };
 
-const fetchEventDatesStart = (state, action) => {
+const fetchEventStart = (state, action) => {
   return updateObject(state, { loading: true });
 };
 
-const fetchEventDatesSuccess = (state, action) => {
+const fetchEventSuccess = (state, action) => {
   return updateObject(state, {
-    eventDates: action.eventDates,
+    event: action.event,
     error: null,
     updateSuccess: null,
     loading: false
   });
 };
 
-const fetchEventDatesFail = (state, action) => {
+const fetchEventFail = (state, action) => {
   return updateObject(state, {
     error: action.error,
     loading: false
@@ -65,12 +65,12 @@ const reducer = (state = initialState, action) => {
       return updateRSVPSuccess(state, action);
     case actionTypes.RSVP_FAIL:
       return RSVPFail(state, action);
-    case actionTypes.FETCH_EVENT_DATES_START:
-      return fetchEventDatesStart(state, action);
-    case actionTypes.FETCH_EVENT_DATES_SUCCESS:
-      return fetchEventDatesSuccess(state, action);
-    case actionTypes.FETCH_EVENT_DATES_FAIL:
-      return fetchEventDatesFail(state, action);
+    case actionTypes.FETCH_EVENT_START:
+      return fetchEventStart(state, action);
+    case actionTypes.FETCH_EVENT_SUCCESS:
+      return fetchEventSuccess(state, action);
+    case actionTypes.FETCH_EVENT_FAIL:
+      return fetchEventFail(state, action);
     default:
       return state;
   }

@@ -251,7 +251,7 @@ class Invitation extends Component {
               path={this.props.match.url}
               render={props => <Auth {...props} />}
             />
-            {this.props.isauthenticated && (
+            {this.props.isAuthenticated && (
               <Route
                 path={this.props.match.url}
                 render={props => <RSVP {...props} />}
@@ -262,16 +262,14 @@ class Invitation extends Component {
       </div>
     );
   }
+}
 
 const mapStateToProps = state => {
   return {
     token: state.auth.token,
     email: state.auth.email,
-    isauthenticated: state.auth.token !== null
+    isAuthenticated: state.auth.token !== null
   };
 };
-
-}
-// export default Invitation;
 
 export default connect(mapStateToProps)(Invitation);
