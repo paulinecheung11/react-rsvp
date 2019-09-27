@@ -191,9 +191,15 @@ class Invitation extends Component {
               </ol>
             </div>
             {this.props.isauthenticated ? (
-              <Route path={this.props.match.url} component={RSVP} />
+              <Route
+                path={this.props.match.url}
+                render={props => <RSVP {...props} />}
+              />
             ) : (
-              <Route path={this.props.match.url} component={Auth} />
+              <Route
+                path={this.props.match.url}
+                render={props => <Auth {...props} />}
+              />
             )}
           </div>
         </div>
