@@ -18,7 +18,7 @@ class Invitation extends Component {
           <div className="frame__footer d-flex flex-items-center flex-justify-center col-12 text-uppercase text-edmondsans text-cream text-spacing">
             <span>Ashley</span>
             <button className="frame__icon px-4 d-flex" id="js-love-trigger" aria-label="Click me">
-              <svg class="frame__heart">
+              <svg className="frame__heart">
                 <title>Click me!</title>
                 <use xlinkHref="#heart" />
               </svg>
@@ -66,7 +66,7 @@ class Invitation extends Component {
               <img className="illustration rellax" data-rellax-speed="1" src="/purple.svg" alt="" />
               <img className="illustration rellax" data-rellax-speed="2" src="/green.svg" alt="" />
             </div>
-            <div className="hearts" id="js-love"></div>
+            <div className="hearts" id="js-love-container"></div>
             <svg className="birds birds-left" viewBox="0 0 8 33" width="185" height="828">
               <path d="M1.711 30.019c-0.135 0.113-0.207 0.202-0.245 0.284-0.059-0.133-0.184-0.281-0.372-0.488-0.313-0.344-0.838-0.571-1.093-0.554l1.433 1.463 1.275-1.067c-0.256-0.047-0.646 0.067-0.998 0.362z"></path>
               <path d="M3.953 31.527c0.016 0.044 0.025 0.095 0.025 0.148 0 0.031-0.003 0.062-0.009 0.092l0.001-0.003c0.097-0.051 0.239-0.087 0.447-0.132 0.345-0.075 0.765-0.015 0.91 0.082l-1.531 0.286-0.274-1.012c0.175 0.064 0.356 0.26 0.432 0.539z"></path>
