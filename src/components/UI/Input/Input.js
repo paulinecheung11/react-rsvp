@@ -21,29 +21,6 @@ const input = props => {
         />
       );
       break;
-    case "textarea":
-      inputElement = (
-        <textarea
-          className={inputClasses.join(" ")}
-          {...props.elementConfig}
-          value={props.value}
-          onChange={props.changed}
-        />
-      );
-      break;
-    case "select":
-      inputElement = (
-        <select
-          className={inputClasses.join(" ")}
-          value={props.value}
-          onChange={props.changed}
-        >
-          {props.elementConfig.options.map(option => (
-            <option value={option.value}>{option.displayValue}</option>
-          ))}
-        </select>
-      );
-      break;
     default:
       inputElement = (
         <input
@@ -57,6 +34,7 @@ const input = props => {
 
   return (
     <label className='mx-auto'>
+      <span className='sr-only'>meow</span>
       {inputElement}
     </label>
   );

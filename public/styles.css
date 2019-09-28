@@ -67,6 +67,13 @@ body {
   font-family: Minion Pro, 'Times New Roman', Times, serif;
 }
 
+button[disabled] {
+  cursor: not-allowed;
+}
+button[disabled] + div {
+  background-color: transparent
+}
+
 .d-flex {
   display: flex;
 }
@@ -268,6 +275,17 @@ body {
 .px-6 {
   padding-left: var(--spacing-6);
   padding-right: var(--spacing-6);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  border: 0;
 }
 
 .mainframe {
