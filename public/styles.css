@@ -847,20 +847,20 @@ input[type="radio"] + label {
 .hearts {
   bottom: var(--footer-height);
   height: 100%;
-  left: 0;
+  left: var(--border-height);
   overflow: hidden;
   pointer-events: none;
   position: fixed;
-  width: 100%;
+  width: calc(100% - 2 * var(--border-height));
   z-index: 1;
 }
 
 .heart {
   fill: var(--color-pink);
   position: absolute;
-  top: -50%;
+  top: 0;
 }
 
 @keyframes love {
-  0% {top: 110%;}
+  0% {top: 100%;}
 }
