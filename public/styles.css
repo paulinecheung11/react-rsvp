@@ -99,6 +99,10 @@ body {
   color: var(--color-black);
 }
 
+.text-pink {
+  color: var(--color-pink);
+}
+
 .text-cream {
   color: var(--color-cream);
 }
@@ -284,6 +288,43 @@ body {
   position: fixed;
   width: calc(100vw - 2 * var(--border-height));
   z-index: 5;
+}
+
+@media screen and (max-width: 767px) {
+  .frame__header {
+    display: none;
+  }
+
+  .frame__exit {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .frame__header {
+    height: var(--border-height);
+    left: 0;
+    position: fixed;
+    top: 0;
+    z-index: 5;
+  }
+
+  .frame__exit {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    right: var(--border-height);
+  }
+
+  .frame__exit:hover span,
+  .frame__exit:focus span {
+    text-decoration: underline;
+  }
+
+  .frame__exit:focus {
+    outline: none;
+  }
 }
 
 .frame__footer {

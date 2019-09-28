@@ -265,6 +265,10 @@ class RSVP extends Component {
     if (!this.props.loading) {
       displayData = (
         <div>
+          <div className='frame__header col-12 d-flex flex-items-center flex-justify-center'>
+            <span className='f2 text-nunito text-cream text-bold'>Hi {data.name}!</span>
+            <button className='f4 frame__exit text-pink text-edmondsans text-bold text-uppercase'><span>Sign Out</span> →</button>
+          </div>
           <div
             className={`${isOpenInvite} invitation card--alt d-flex flex-items-center flex-justify-center text-center`}
             id="js-invitation"
