@@ -17,8 +17,9 @@ class Invitation extends Component {
           <div className="frame"></div>
           <div className="frame__footer d-flex flex-items-center flex-justify-center col-12 text-uppercase text-edmondsans text-cream text-spacing">
             <span>Ashley</span>
-            <button className="frame__icon px-4 d-flex" id="js-love-trigger" aria-label="loves">
-              <svg>
+            <button className="frame__icon px-4 d-flex" id="js-love-trigger" aria-label="Click me">
+              <svg class="frame__heart">
+                <title>Click me!</title>
                 <use xlinkHref="#heart" />
               </svg>
             </button>

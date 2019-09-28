@@ -362,21 +362,22 @@ button[disabled] + div {
 .frame__icon:focus {
   outline: none;
 }
-.frame__icon:hover svg,
-.frame__icon:focus svg {
-  transform: scale(1.2);
-}
-.frame__icon:active svg {
-  transform: scale(1.05);
-}
-
-.frame__icon svg {
+.frame__icon .frame__heart {
+  animation: beat 5s infinite;
   fill: var(--color-pink);
   font-size: 1.5rem;
   height: 1em;
   transition-duration: .25s;
   transition-property: transform;
   width: 1em;
+}
+@keyframes beat {
+  0% { transform: scale(1); }
+  10% { transform: scale(1.1); }
+  15% { transform: scale(1); }
+  20% { transform: scale(1.05); }
+  25% { transform: scale(1); }
+  100% { transform: scale(1); }
 }
 
 .illustration {
