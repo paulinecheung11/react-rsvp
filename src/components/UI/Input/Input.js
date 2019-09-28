@@ -18,6 +18,8 @@ const input = props => {
           {...props.elementConfig}
           value={props.value}
           onChange={props.changed}
+          id={props.label}
+          name={props.label}
         />
       );
       break;
@@ -28,13 +30,15 @@ const input = props => {
           {...props.elementConfig}
           value={props.value}
           onChange={props.changed}
+          id={props.label}
+          name={props.label}
         />
       );
   }
 
   return (
-    <label className='mx-auto'>
-      <span className='sr-only'>meow</span>
+    <label className='mx-auto' htmlFor={props.label}>
+      <span className='sr-only'>{props.label}</span>
       {inputElement}
     </label>
   );

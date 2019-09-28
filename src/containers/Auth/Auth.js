@@ -16,6 +16,7 @@ class Auth extends Component {
           type: "email",
           placeholder: "Email"
         },
+        label: "email",
         value: "",
         validation: {
           required: true,
@@ -31,6 +32,7 @@ class Auth extends Component {
           type: "password",
           placeholder: "Password"
         },
+        label: "password",
         value: "",
         validation: {
           required: true,
@@ -114,6 +116,7 @@ class Auth extends Component {
         key={formElement.id}
         elementType={formElement.config.elementType}
         elementConfig={formElement.config.elementConfig}
+        label={formElement.config.label}
         value={formElement.config.value}
         invalid={!formElement.config.valid}
         shouldValidate={formElement.config.validation}
