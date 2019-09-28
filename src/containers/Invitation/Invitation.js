@@ -187,7 +187,7 @@ class Invitation extends Component {
                 <li className="d-flex flex-items-center py-sm-3 py-lg-6">
                   <p>
                     In <span className="text-bold">November 2018</span> the
-                    Remote Year program wrapped up and we decided to keep
+                    Remote Year program wrapped up. Not sick of it yet, we decided to keep
                     traveling on our own.
                   </p>
                 </li>
@@ -195,8 +195,8 @@ class Invitation extends Component {
                   <p>
                     In <span className="text-bold">January 2019</span>, we
                     stayed in Cerro Chirripó, Costa Rica. Its jungly flowers and
-                    crystal rivers made it a perfect proposal spot. Amanda
-                    popped the question after an eventful trail run and Ashley
+                    crystal rivers made it a perfect proposal spot. One day after an eventful trail run, Amanda
+                    popped the question and Ashley
                     said, “Yes!”
                   </p>
                 </li>
@@ -210,11 +210,11 @@ class Invitation extends Component {
                     said, "Yes, yes, yes!"
                   </p>
                 </li>
-                <li className="d-flex flex-items-center py-sm-3 py-lg-6 text-uppercase text-bold">
+                <li className="d-flex flex-items-center py-sm-3 py-lg-6 text-uppercase">
                   <p>The big day</p>
                 </li>
                 <li className="d-flex flex-items-center py-sm-3 py-lg-6">
-                  <p>Reception in Boston! Details TBD</p>
+                  <p>Reception in Boston! Details coming soon.</p>
                 </li>
               </ol>
             </div>
