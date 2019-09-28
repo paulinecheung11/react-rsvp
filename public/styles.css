@@ -66,10 +66,11 @@ body {
 }
 
 button[disabled] {
+  color: #ccc;
   cursor: not-allowed;
 }
 button[disabled] + div {
-  background-color: transparent
+  background-color: transparent;
 }
 
 .d-flex {

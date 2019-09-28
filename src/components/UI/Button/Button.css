@@ -44,6 +44,10 @@
   cursor: not-allowed;
 }
 
+.Button:disabled + div {
+  background-color: transparent;
+}
+
 .Danger {
   color: #944317;
 }
