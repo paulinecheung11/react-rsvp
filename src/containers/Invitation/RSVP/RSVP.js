@@ -8,11 +8,11 @@ class RSVP extends Component {
   state = {
     updatedForm: null,
     selected: null,
-    updatedError: null
+    updatedError: null,
+    changed: false
   };
 
   componentDidMount() {
-    console.log("token", this.props.token);
     this.props.onFetchEvent(this.props.token);
     this.props.onFetchRSVP(this.props.token, this.props.email);
   }
@@ -20,13 +20,20 @@ class RSVP extends Component {
   radioChangeHandler = (attend, data) => {
     data.attend = attend;
     if (attend === "no") {
-      data.rsvpCount = "";
+      data.rsvpCount = "0";
       this.setState({
         updatedError: ""
       });
+    } else {
+      if (data.rsvpCount === "" || data.rsvpCount === "0") {
+        this.setState({
+          updatedError: "Guest count must be more than 0"
+        });
+      }
     }
     this.setState({
-      updatedForm: data
+      updatedForm: data,
+      changed: true
     });
   };
 
@@ -36,7 +43,7 @@ class RSVP extends Component {
       this.setState({
         updatedError: "Guest count exceeded"
       });
-    } else if (event.target.value < 0) {
+    } else if (event.target.value < 1) {
       this.setState({
         updatedError: "Guest count must be more than 0"
       });
@@ -45,15 +52,16 @@ class RSVP extends Component {
         updatedError: ""
       });
     }
+
     data.rsvpCount = event.target.value;
     this.setState({
-      updatedForm: data
+      updatedForm: data,
+      changed: true
     });
   };
 
   messageChangeHandler = (event, data) => {
     event.preventDefault();
-    console.log("messageChangeHandler", event, data);
     data.message = event.target.value;
     this.setState({
       updatedForm: data
@@ -70,50 +78,181 @@ class RSVP extends Component {
   };
 
   render() {
-    let data = null,
-      formMessage = null,
+    let formMessage = null,
       formError = null,
       displayData = null,
       eventInfo = null,
-      isOpen = null;
+      isOpenInvite = "is-open",
+      isOpenRSVP = "is-open",
+      rsvpForm = null;
+
+    let data = {
+      attend: " ",
+      rsvpCount: "0",
+      message: " "
+    };
 
     if (this.props.isAuthenticated) {
       eventInfo = {
         ...this.props.event
       };
-      isOpen = "is-open";
     }
 
-    console.log("eventInfo", eventInfo, isOpen);
     if (!this.state.updatedForm) {
-      data = {
-        ...this.props.rsvpData
-      };
+      if (this.props.rsvpData) {
+        data = {
+          ...this.props.rsvpData
+        };
+      }
+
+      isOpenInvite = "is-open";
+      isOpenRSVP = "is-open";
 
       if (data.id) {
         if (this.props.error) {
           formError = true;
           formMessage = this.props.error;
-        } else {
-          if (this.props.success) {
-            formError = false;
-            if (data.attend === "yes") {
-              formMessage = "Thank you for attending the wedding";
-            } else {
-              formMessage = "Sorry that you won't be attending";
-            }
-          }
         }
       } else {
         formError = true;
-
         formMessage = "Guest missing. Please contact Amanda/Ashley";
       }
     } else {
       data = this.state.updatedForm;
       if (this.state.updatedError) {
-        formError = true;
         formMessage = this.state.updatedError;
+      }
+    }
+
+    if (!this.props.success) {
+      rsvpForm = (
+        <div
+          className={`${isOpenRSVP} rsvp card--alt d-flex flex-items-center flex-justify-center text-center`}
+          id="js-rsvp"
+        >
+          <p>{formMessage}</p>
+          <div className="h1 text-edmondsans text-uppercase text-spacing">
+            R.S.V.P.
+          </div>
+          <div className="f4 text-serif text-italic">
+            Kindly respond by {eventInfo.rsvpDate}
+          </div>
+          <form>
+            <div className="py-2">
+              <div className="d-flex flex-justify-center">
+                <span className="px-2 f2 d-flex flex-items-center">
+                  <input
+                    disabled={formError}
+                    checked={data.attend === "yes" ? true : false}
+                    onChange={() => this.radioChangeHandler("yes", data)}
+                    type="radio"
+                    name="attending"
+                    value="accept"
+                    id="attending-accept"
+                  />
+                  <label className="px-1 text-serif" htmlFor="attending-accept">
+                    Accept
+                  </label>
+                </span>
+                <span className="px-2 f2 d-flex flex-items-center">
+                  <input
+                    disabled={formError}
+                    checked={data.attend === "no" ? true : false}
+                    onChange={() => this.radioChangeHandler("no", data)}
+                    type="radio"
+                    name="attending"
+                    value="decline"
+                    id="attending-decline"
+                  />
+                  <label
+                    className="px-1 text-serif"
+                    htmlFor="attending-decline"
+                  >
+                    Decline
+                  </label>
+                </span>
+              </div>
+              <div className="f3">
+                <input
+                  disabled={data.attend !== "yes" ? true : false || formError}
+                  onChange={e => this.rsvpChangeHandler(e, data)}
+                  value={
+                    data.rsvpCount === "" ? data.guestCount : data.rsvpCount
+                  }
+                  min="0"
+                  max={data.guestCount}
+                  className="form-number text-nunito"
+                  type="number"
+                  name="guest-number"
+                  id="guest-number"
+                />
+                <label className="text-serif" htmlFor="guest-number">
+                  of {data.guestCount} guests attending
+                </label>
+              </div>
+            </div>
+            <div className="py-2">
+              <label className="d-flex f4 text-serif" htmlFor="more">
+                Anything else you’d like to add? Please let
+                <br />
+                us know of any dietary requirements.
+              </label>
+              <textarea
+                disabled={formError}
+                onChange={e => this.messageChangeHandler(e, data)}
+                value={data.message}
+                className="form-textarea col-12 text-nunito"
+                rows="2"
+                name="message"
+                id="message"
+              ></textarea>
+            </div>
+            <div>
+              <button
+                disabled={
+                  formError || !this.state.changed || this.state.updatedError
+                }
+                onClick={this.updateRsvpHandler}
+                className="form-submit text-uppercase text-spacing text-edmondsans"
+              >
+                Submit
+              </button>
+              <div className="mx-auto"></div>
+            </div>
+          </form>
+        </div>
+      );
+    } else {
+      formError = false;
+      if (data.attend === "yes") {
+        rsvpForm = (
+          <div
+            className={`${isOpenRSVP} rsvp card--alt d-flex flex-items-center flex-justify-center text-center`}
+            id="js-rsvp"
+          >
+            <div className="h1 text-edmondsans text-uppercase text-spacing">
+              Thank you
+            </div>
+            <div className="f4 text-serif col-8">
+              Can’t wait to celebrate with you! We will be sending you an email
+              shortly with more details.
+            </div>
+          </div>
+        );
+      } else {
+        rsvpForm = (
+          <div
+            className={`${isOpenRSVP} rsvp card--alt d-flex flex-items-center flex-justify-center text-center`}
+            id="js-rsvp"
+          >
+            <div className="h1 text-edmondsans text-uppercase text-spacing">
+              Thank you for your response
+            </div>
+            <div className="f4 text-serif col-8">
+              sorry that you won't be able to celebrate with us.
+            </div>
+          </div>
+        );
       }
     }
 
@@ -125,13 +264,15 @@ class RSVP extends Component {
       displayData = (
         <div>
           <div
-            className={`${isOpen} invitation card--alt d-flex flex-items-center flex-justify-center text-center`}
+            className={`${isOpenInvite} invitation card--alt d-flex flex-items-center flex-justify-center text-center`}
             id="js-invitation"
           >
             <div className="f4 text-italic text-serif">
               Together with their families
             </div>
-            <div className="h1 text-edmondsans text-uppercase">Ashley Ramsay</div>
+            <div className="h1 text-edmondsans text-uppercase">
+              Ashley Ramsay
+            </div>
             <svg
               className="invitation__and py-1"
               viewBox="0 0 29 32"
@@ -145,7 +286,9 @@ class RSVP extends Component {
               <path d="M0.883 10.324c-0.221 0.083-0.332 0.329-0.249 0.55s0.329 0.332 0.55 0.249l21.561-8.116c0.464-0.175 0.307-0.868-0.188-0.824-2.971 0.26-5.755-0.254-8.36-1.542-0.211-0.104-0.467-0.018-0.572 0.193s-0.018 0.467 0.193 0.572c1.85 0.915 3.789 1.46 5.813 1.635l0.508 0.036z"></path>
               <path d="M26.971 21.93c0.221-0.083 0.332-0.329 0.249-0.55s-0.329-0.332-0.55-0.249l-21.561 8.116c-0.464 0.175-0.307 0.868 0.188 0.824 2.971-0.26 5.755 0.254 8.36 1.542 0.211 0.104 0.467 0.018 0.572-0.193s0.018-0.467-0.193-0.572c-1.85-0.915-3.789-1.46-5.813-1.635l-0.508-0.036z"></path>
             </svg>
-            <div className="h1 text-edmondsans text-uppercase">Amanda Cheung</div>
+            <div className="h1 text-edmondsans text-uppercase">
+              Amanda Cheung
+            </div>
             <div className="py-3 f3 text-serif lh-condensed">
               Invite you to celebrate
               <br />
@@ -174,97 +317,7 @@ class RSVP extends Component {
               Sea to Sky Gondola | Squamish, Canada
             </div>
           </div>
-          <div
-            className={`${isOpen} rsvp card--alt d-flex flex-items-center flex-justify-center text-center`}
-            id="js-rsvp"
-          >
-            <p>{formMessage}</p>
-            <div className="h1 text-edmondsans text-uppercase text-spacing">
-              R.S.V.P.
-            </div>
-            <div className="f4 text-serif text-italic">
-              Kindly respond by {eventInfo.rsvpDate}
-            </div>
-            <form>
-              <div className="py-2">
-                <div className="d-flex flex-justify-center">
-                  <span className="px-2 f2 d-flex flex-items-center">
-                    <input
-                      checked={data.attend === "yes"}
-                      onChange={() => this.radioChangeHandler("yes", data)}
-                      type="radio"
-                      name="attending"
-                      value="accept"
-                      id="attending-accept"
-                    />
-                    <label
-                      className="px-1 text-serif"
-                      htmlFor="attending-accept"
-                    >
-                      Accept
-                    </label>
-                  </span>
-                  <span className="px-2 f2 d-flex flex-items-center">
-                    <input
-                      checked={data.attend === "no"}
-                      onChange={() => this.radioChangeHandler("no", data)}
-                      type="radio"
-                      name="attending"
-                      value="decline"
-                      id="attending-decline"
-                    />
-                    <label
-                      className="px-1 text-serif"
-                      htmlFor="attending-decline"
-                    >
-                      Decline
-                    </label>
-                  </span>
-                </div>
-                <div className="f3">
-                  <input
-                    disabled={data.attend !== "yes" ? true : false}
-                    onChange={e => this.rsvpChangeHandler(e, data)}
-                    value={data.rsvpCount}
-                    min="0"
-                    max={data.guestCount}
-                    className="form-number text-nunito"
-                    type="number"
-                    name="guest-number"
-                    id="guest-number"
-                  />
-                  <label className="text-serif" htmlFor="guest-number">
-                    of {data.guestCount} guests attending
-                  </label>
-                </div>
-              </div>
-              <div className="py-2">
-                <label className="d-flex f4 text-serif" htmlFor="more">
-                  Anything else you’d like to add? Please let
-                  <br />
-                  us know of any dietary requirements.
-                </label>
-                <textarea
-                  onChange={e => this.messageChangeHandler(e, data)}
-                  value={data.message}
-                  className="form-textarea col-12 text-nunito"
-                  rows="2"
-                  name="message"
-                  id="message"
-                ></textarea>
-              </div>
-              <div>
-                <button
-                  disabled={formError}
-                  onClick={this.updateRsvpHandler}
-                  className="form-submit text-uppercase text-spacing text-edmondsans"
-                >
-                  Submit
-                </button>
-                <div className="mx-auto"></div>
-              </div>
-            </form>
-          </div>
+          {rsvpForm}
         </div>
       );
     }

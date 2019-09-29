@@ -77,7 +77,6 @@ export const fetchEvent = token => {
     axios
       .get("/event.json?auth=" + token)
       .then(res => {
-        console.log("fetchEvent", res);
         dispatch(fetchEventSuccess(res.data));
       })
       .catch(err => {
