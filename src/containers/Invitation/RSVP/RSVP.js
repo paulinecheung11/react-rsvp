@@ -27,7 +27,7 @@ class RSVP extends Component {
     } else {
       if (data.rsvpCount === "" || data.rsvpCount === "0") {
         this.setState({
-          updatedError: "Guest count must be more than 0"
+          updatedError: "Must be more than 0"
         });
       }
     }
@@ -233,8 +233,8 @@ class RSVP extends Component {
             <div className="h1 text-edmondsans text-uppercase text-spacing">
               Thank you
             </div>
-            <div className="f4 text-serif col-8">
-              Can’t wait to celebrate with you! We will be sending you an email
+            <div className="f3 text-serif col-8">
+              Can’t wait! We will be sending you an email
               shortly with more details.
             </div>
           </div>
@@ -246,10 +246,10 @@ class RSVP extends Component {
             id="js-rsvp"
           >
             <div className="h1 text-edmondsans text-uppercase text-spacing">
-              Thank you for your response
+              Thank you
             </div>
-            <div className="f4 text-serif col-8">
-              sorry that you won't be able to celebrate with us.
+            <div className="f3 text-serif col-8">
+              Sorry that you won’t be able to make it. We’ll also be having a reception in Boston and will be sending out invitations separately.
             </div>
           </div>
         );
