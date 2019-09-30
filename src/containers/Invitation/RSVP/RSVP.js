@@ -78,7 +78,6 @@ class RSVP extends Component {
   };
 
   logoutHandler = event => {
-    console.log("Logout", event);
     this.props.history.push("/logout");
   };
 
