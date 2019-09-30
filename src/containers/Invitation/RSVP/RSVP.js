@@ -27,7 +27,7 @@ class RSVP extends Component {
     } else {
       if (data.rsvpCount === "" || data.rsvpCount === "0") {
         this.setState({
-          updatedError: "Guest count must be more than 0"
+          updatedError: "Must be more than 0"
         });
       }
     }
@@ -45,7 +45,7 @@ class RSVP extends Component {
       });
     } else if (event.target.value < 1) {
       this.setState({
-        updatedError: "Guest count must be more than 0"
+        updatedError: "Invalid guest count"
       });
     } else {
       this.setState({
@@ -130,7 +130,6 @@ class RSVP extends Component {
           className={`${isOpenRSVP} rsvp card--alt d-flex flex-items-center flex-justify-center text-center`}
           id="js-rsvp"
         >
-          <p>{formMessage}</p>
           <div className="h1 text-edmondsans text-uppercase text-spacing">
             R.S.V.P.
           </div>
@@ -218,6 +217,7 @@ class RSVP extends Component {
                 Submit
               </button>
               <div className="mx-auto"></div>
+              <p className='form-error text-center'>{formMessage}</p>
             </div>
           </form>
         </div>
@@ -233,8 +233,8 @@ class RSVP extends Component {
             <div className="h1 text-edmondsans text-uppercase text-spacing">
               Thank you
             </div>
-            <div className="f4 text-serif col-8">
-              Can’t wait to celebrate with you! We will be sending you an email
+            <div className="f3 text-serif col-8">
+              Can’t wait! We will be sending you an email
               shortly with more details.
             </div>
           </div>
@@ -246,10 +246,10 @@ class RSVP extends Component {
             id="js-rsvp"
           >
             <div className="h1 text-edmondsans text-uppercase text-spacing">
-              Thank you for your response
+              Thank you
             </div>
-            <div className="f4 text-serif col-8">
-              sorry that you won't be able to celebrate with us.
+            <div className="f3 text-serif col-8">
+              Sorry that you won’t be able to make it. We’ll also be having a reception in Boston and will be sending out invitations separately.
             </div>
           </div>
         );
@@ -263,6 +263,10 @@ class RSVP extends Component {
     if (!this.props.loading) {
       displayData = (
         <div>
+          <div className='frame__header col-12 d-flex flex-items-center flex-justify-center'>
+            <span className='f2 text-nunito text-cream text-bold'>Hi {data.name}!</span>
+            <button className='f4 frame__exit text-pink text-edmondsans text-bold text-uppercase'><span>Sign Out</span> →</button>
+          </div>
           <div
             className={`${isOpenInvite} invitation card--alt d-flex flex-items-center flex-justify-center text-center`}
             id="js-invitation"

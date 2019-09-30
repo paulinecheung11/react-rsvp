@@ -1,16 +1,14 @@
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
+html, body, div, span,
+h1, h2, h3, h4, h5, h6, p,
+a,
+em, img,
+strong,
+b, i,
+ol, ul, li,
 fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed,
-figure, figcaption, footer, header, hgroup,
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
+article, aside,
+footer, header,
+nav,section, summary {
 	margin: 0;
 	padding: 0;
 	border: 0;
@@ -18,8 +16,8 @@ time, mark, audio, video {
 	font: inherit;
 	vertical-align: baseline;
 }
-article, aside, details, figcaption, figure,
-footer, header, hgroup, menu, nav, section {
+article, aside,
+footer, header, nav, section {
 	display: block;
 }
 
@@ -67,6 +65,14 @@ body {
   font-family: Minion Pro, 'Times New Roman', Times, serif;
 }
 
+button[disabled] {
+  color: #ccc;
+  cursor: not-allowed;
+}
+button[disabled] + div {
+  background-color: transparent;
+}
+
 .d-flex {
   display: flex;
 }
@@ -97,6 +103,10 @@ body {
 
 .text-purple {
   color: var(--color-black);
+}
+
+.text-pink {
+  color: var(--color-pink);
 }
 
 .text-cream {
@@ -139,7 +149,7 @@ body {
 }
 
 .lh-condensed {
-  line-height: 1.5;
+  line-height: 1.33;
 }
 
 .h1 {
@@ -266,6 +276,17 @@ body {
   padding-right: var(--spacing-6);
 }
 
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  border: 0;
+}
+
 .mainframe {
   max-width: var(--max-width);
   width: calc(100% - 2 * var(--border-height));
@@ -286,6 +307,43 @@ body {
   z-index: 5;
 }
 
+@media screen and (max-width: 767px) {
+  .frame__header {
+    display: none;
+  }
+
+  .frame__exit {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .frame__header {
+    height: var(--border-height);
+    left: 0;
+    position: fixed;
+    top: 0;
+    z-index: 5;
+  }
+
+  .frame__exit {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    right: var(--border-height);
+  }
+
+  .frame__exit:hover span,
+  .frame__exit:focus span {
+    text-decoration: underline;
+  }
+
+  .frame__exit:focus {
+    outline: none;
+  }
+}
+
 .frame__footer {
   background-color: var(--color-purple);
   bottom: 0;
@@ -304,21 +362,22 @@ body {
 .frame__icon:focus {
   outline: none;
 }
-.frame__icon:hover svg,
-.frame__icon:focus svg {
-  transform: scale(1.2);
-}
-.frame__icon:active svg {
-  transform: scale(1.05);
-}
-
-.frame__icon svg {
+.frame__icon .frame__heart {
+  animation: beat 5s infinite;
   fill: var(--color-pink);
   font-size: 1.5rem;
   height: 1em;
   transition-duration: .25s;
   transition-property: transform;
   width: 1em;
+}
+@keyframes beat {
+  0% { transform: scale(1); }
+  10% { transform: scale(1.1); }
+  15% { transform: scale(1); }
+  20% { transform: scale(1.05); }
+  25% { transform: scale(1); }
+  100% { transform: scale(1); }
 }
 
 .illustration {
@@ -474,6 +533,7 @@ body {
 .timeline {
   font-size: 18px;
   list-style-type: none;
+  margin-bottom: 20px;
   max-width: 650px;
   width: 90%;
 }
@@ -550,6 +610,7 @@ body {
   background-color: var(--color-cream-light);
   box-sizing: border-box;
   max-width: 360px;
+  position: relative;
   width: 75%;
 }
 
@@ -641,6 +702,7 @@ input[type="radio"] + label {
   opacity: 0;
   pointer-events: none;
   position: relative;
+  top: -2px;
   transform: scaleX(.5);
   transition-duration: .25s;
   transition-property: transform;
@@ -651,6 +713,19 @@ input[type="radio"] + label {
 .form-submit:focus + div {
   opacity: 1;
   transform: scaleX(1);
+}
+
+.form-error {
+  bottom: 18px;
+  color: var(--color-pink);
+  font-size: 16px;
+  left: 50%;
+  position: absolute;
+  transform: translateX(-50%);
+}
+
+.rsvp .form-error {
+  bottom: 30px;
 }
 
 .card--alt {
@@ -772,20 +847,20 @@ input[type="radio"] + label {
 .hearts {
   bottom: var(--footer-height);
   height: 100%;
-  left: 0;
+  left: var(--border-height);
   overflow: hidden;
   pointer-events: none;
   position: fixed;
-  width: 100%;
+  width: calc(100% - 2 * var(--border-height));
   z-index: 1;
 }
 
 .heart {
   fill: var(--color-pink);
   position: absolute;
-  top: -50%;
+  top: 0;
 }
 
 @keyframes love {
-  0% {top: 110%;}
+  0% {top: 100%;}
 }

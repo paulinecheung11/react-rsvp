@@ -18,30 +18,9 @@ const input = props => {
           {...props.elementConfig}
           value={props.value}
           onChange={props.changed}
+          id={props.label}
+          name={props.label}
         />
-      );
-      break;
-    case "textarea":
-      inputElement = (
-        <textarea
-          className={inputClasses.join(" ")}
-          {...props.elementConfig}
-          value={props.value}
-          onChange={props.changed}
-        />
-      );
-      break;
-    case "select":
-      inputElement = (
-        <select
-          className={inputClasses.join(" ")}
-          value={props.value}
-          onChange={props.changed}
-        >
-          {props.elementConfig.options.map(option => (
-            <option value={option.value}>{option.displayValue}</option>
-          ))}
-        </select>
       );
       break;
     default:
@@ -51,12 +30,15 @@ const input = props => {
           {...props.elementConfig}
           value={props.value}
           onChange={props.changed}
+          id={props.label}
+          name={props.label}
         />
       );
   }
 
   return (
-    <label className='mx-auto'>
+    <label className='mx-auto' htmlFor={props.label}>
+      <span className='sr-only'>{props.label}</span>
       {inputElement}
     </label>
   );
