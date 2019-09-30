@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { Route } from "react-router-dom";
 import RSVP from "./RSVP/RSVP";
 import Auth from "../Auth/Auth";
+import Logout from "../Auth/Logout/Logout";
 
 class Invitation extends Component {
   render() {
@@ -17,7 +18,11 @@ class Invitation extends Component {
           <div className="frame"></div>
           <div className="frame__footer d-flex flex-items-center flex-justify-center col-12 text-uppercase text-edmondsans text-cream text-spacing">
             <span>Ashley</span>
-            <button className="frame__icon px-4 d-flex" id="js-love-trigger" aria-label="Click me">
+            <button
+              className="frame__icon px-4 d-flex"
+              id="js-love-trigger"
+              aria-label="Click me"
+            >
               <svg className="frame__heart">
                 <title>Click me!</title>
                 <use xlinkHref="#heart" />
@@ -27,9 +32,24 @@ class Invitation extends Component {
           </div>
           <div className="main">
             <div className="illustrations">
-              <img className="illustration rellax" data-rellax-speed="-10" src="/sky.svg" alt="" />
-              <img className="illustration rellax" data-rellax-speed="-5" src="/mountains.svg" alt="" />
-              <img className="illustration rellax" data-rellax-speed="-1" src="/lodge.svg" alt="" />
+              <img
+                className="illustration rellax"
+                data-rellax-speed="-10"
+                src="/sky.svg"
+                alt=""
+              />
+              <img
+                className="illustration rellax"
+                data-rellax-speed="-5"
+                src="/mountains.svg"
+                alt=""
+              />
+              <img
+                className="illustration rellax"
+                data-rellax-speed="-1"
+                src="/lodge.svg"
+                alt=""
+              />
               <svg
                 className="cloud cloud--top"
                 viewBox="0 0 290 32"
@@ -63,11 +83,26 @@ class Invitation extends Component {
                   d="M289.928 32c-28.145 0-27.759-12.145-43.32-12.145-11.053 0-13.164 6.013-21.995 6.013-10.059 0-20.495-14.687-44.53-14.687-20.748 0-24.731 9.374-41.288 9.374-16 0-35.688-20.555-74.024-20.555-41.831 0-64.771 23.057-64.771 32z"
                 ></path>
               </svg>
-              <img className="illustration rellax" data-rellax-speed="1" src="/purple.svg" alt="" />
-              <img className="illustration rellax" data-rellax-speed="2" src="/green.svg" alt="" />
+              <img
+                className="illustration rellax"
+                data-rellax-speed="1"
+                src="/purple.svg"
+                alt=""
+              />
+              <img
+                className="illustration rellax"
+                data-rellax-speed="2"
+                src="/green.svg"
+                alt=""
+              />
             </div>
             <div className="hearts" id="js-love-container"></div>
-            <svg className="birds birds-left" viewBox="0 0 8 33" width="185" height="828">
+            <svg
+              className="birds birds-left"
+              viewBox="0 0 8 33"
+              width="185"
+              height="828"
+            >
               <path d="M1.711 30.019c-0.135 0.113-0.207 0.202-0.245 0.284-0.059-0.133-0.184-0.281-0.372-0.488-0.313-0.344-0.838-0.571-1.093-0.554l1.433 1.463 1.275-1.067c-0.256-0.047-0.646 0.067-0.998 0.362z"></path>
               <path d="M3.953 31.527c0.016 0.044 0.025 0.095 0.025 0.148 0 0.031-0.003 0.062-0.009 0.092l0.001-0.003c0.097-0.051 0.239-0.087 0.447-0.132 0.345-0.075 0.765-0.015 0.91 0.082l-1.531 0.286-0.274-1.012c0.175 0.064 0.356 0.26 0.432 0.539z"></path>
               <path d="M6.357 0.758c0.135 0.113 0.207 0.202 0.245 0.284 0.060-0.133 0.184-0.28 0.372-0.488 0.313-0.344 0.838-0.571 1.093-0.555l-1.431 1.464-1.278-1.067c0.257-0.047 0.646 0.067 0.999 0.362z"></path>
@@ -187,17 +222,17 @@ class Invitation extends Component {
                 <li className="d-flex flex-items-center py-sm-3 py-lg-6">
                   <p>
                     In <span className="text-bold">November 2018</span> the
-                    Remote Year program wrapped up. Not sick of it yet, we decided to keep
-                    traveling on our own.
+                    Remote Year program wrapped up. Not sick of it yet, we
+                    decided to keep traveling on our own.
                   </p>
                 </li>
                 <li className="d-flex flex-items-center py-sm-3 py-lg-6">
                   <p>
                     In <span className="text-bold">January 2019</span>, we
                     stayed in Cerro Chirripó, Costa Rica. Its jungly flowers and
-                    crystal rivers made it a perfect proposal spot. One day after an eventful trail run, Amanda
-                    popped the question and Ashley
-                    said, “Yes!”
+                    crystal rivers made it a perfect proposal spot. One day
+                    after an eventful trail run, Amanda popped the question and
+                    Ashley said, “Yes!”
                   </p>
                 </li>
                 <li className="d-flex flex-items-center py-sm-3 py-lg-6">
@@ -222,6 +257,7 @@ class Invitation extends Component {
               path={this.props.match.url}
               render={props => <Auth {...props} />}
             />
+            <Route path="/logout" render={props => <Logout {...props} />} />
             {this.props.isAuthenticated && (
               <Route
                 path={this.props.match.url}
