@@ -78,9 +78,7 @@ class RSVP extends Component {
   };
 
   render() {
-    let data = null,
-      errorMessage = null,
-      formMessage = null,
+    let formMessage = null,
       formError = null,
       displayData = null,
       eventInfo = null,
@@ -132,7 +130,6 @@ class RSVP extends Component {
           className={`${isOpenRSVP} rsvp card--alt d-flex flex-items-center flex-justify-center text-center`}
           id="js-rsvp"
         >
-          <p>{formMessage}</p>
           <div className="h1 text-edmondsans text-uppercase text-spacing">
             R.S.V.P.
           </div>
@@ -220,6 +217,7 @@ class RSVP extends Component {
                 Submit
               </button>
               <div className="mx-auto"></div>
+              <p className='form-error text-center'>{formMessage}</p>
             </div>
           </form>
         </div>
@@ -330,7 +328,6 @@ class RSVP extends Component {
     return displayData;
   }
 }
-
 
 const mapStateToProps = state => {
   return {
