@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { CSSTransition } from "react-transition-group";
 import { connect } from "react-redux";
 
 import Spinner from "../../../components/UI/Spinner/Spinner";
@@ -77,17 +78,16 @@ class RSVP extends Component {
     });
   };
 
-  logoutHandler = event => {
+  logoutHandler = () => {
     this.props.history.push("/logout");
   };
 
   render() {
     let formMessage = null,
+      showData = false,
       formError = null,
       displayData = null,
       eventInfo = null,
-      isOpenInvite = "is-open",
-      isOpenRSVP = "is-open",
       rsvpForm = null;
 
     let data = {
@@ -95,11 +95,19 @@ class RSVP extends Component {
       rsvpCount: "0",
       message: " "
     };
+    console.log("show data render", showData);
 
     if (this.props.isAuthenticated) {
       eventInfo = {
         ...this.props.event
       };
+      showData = true;
+      console.log("show data", showData);
+      console.log("auth", this.props.isAuthenticated);
+    } else {
+      showData = false;
+      console.log("show data", showData);
+      console.log("auth", this.props.isAuthenticated);
     }
 
     if (!this.state.updatedForm) {
@@ -109,9 +117,6 @@ class RSVP extends Component {
         };
       }
 
-      isOpenInvite = "is-open";
-      isOpenRSVP = "is-open";
-
       if (data.id) {
         if (this.props.error) {
           formError = true;
@@ -119,7 +124,7 @@ class RSVP extends Component {
         }
       } else {
         formError = true;
-        formMessage = "Guest missing. Please contact Amanda/Ashley";
+        formMessage = "Whoops! Please contact Ashley / Amanda";
       }
     } else {
       data = this.state.updatedForm;
@@ -131,7 +136,7 @@ class RSVP extends Component {
     if (!this.props.success) {
       rsvpForm = (
         <div
-          className={`${isOpenRSVP} rsvp card--alt d-flex flex-items-center flex-justify-center text-center`}
+          className={`${showData ? 'is-open' : ''} rsvp card--alt d-flex flex-items-center flex-justify-center text-center`}
           id="js-rsvp"
         >
           <div className="h1 text-edmondsans text-uppercase text-spacing">
@@ -231,7 +236,7 @@ class RSVP extends Component {
       if (data.attend === "yes") {
         rsvpForm = (
           <div
-            className={`${isOpenRSVP} rsvp card--alt d-flex flex-items-center flex-justify-center text-center`}
+            className="is-open rsvp card--alt d-flex flex-items-center flex-justify-center text-center"
             id="js-rsvp"
           >
             <div className="h1 text-edmondsans text-uppercase text-spacing">
@@ -246,7 +251,7 @@ class RSVP extends Component {
       } else {
         rsvpForm = (
           <div
-            className={`${isOpenRSVP} rsvp card--alt d-flex flex-items-center flex-justify-center text-center`}
+            className="is-open rsvp card--alt d-flex flex-items-center flex-justify-center text-center"
             id="js-rsvp"
           >
             <div className="h1 text-edmondsans text-uppercase text-spacing">
@@ -264,76 +269,78 @@ class RSVP extends Component {
 
     if (this.props.loading) {
       displayData = <Spinner />;
-    }
-
-    if (!this.props.loading) {
+    } else {
       displayData = (
         <div>
-          <div className="frame__header col-12 d-flex flex-items-center flex-justify-center">
-            <span className="f2 text-nunito text-cream text-bold">
-              Hi {data.name}!
-            </span>
-            <button
-              className="f4 frame__exit text-pink text-edmondsans text-bold text-uppercase"
-              onClick={this.logoutHandler}
+          <CSSTransition in={showData} timeout={6000} classNames="fade">
+            <div className="frame__header col-12 d-flex flex-items-center flex-justify-center">
+              <span className="f2 text-nunito text-cream">
+                Hi <span className="text-bold">{data.name}</span>!
+              </span>
+              <button
+                className="f4 frame__exit text-pink text-edmondsans text-bold text-uppercase"
+                onClick={() => this.logoutHandler(false)}
+              >
+                <span>Sign Out</span> →
+              </button>
+            </div>
+          </CSSTransition>
+          <CSSTransition in={showData} timeout={6000} classNames="invitation">
+            <div
+              className="invitation card--alt d-flex flex-items-center flex-justify-center text-center"
+              id="js-invitation"
             >
-              <span>Sign Out</span> →
-            </button>
-          </div>
-          <div
-            className={`${isOpenInvite} invitation card--alt d-flex flex-items-center flex-justify-center text-center`}
-            id="js-invitation"
-          >
-            <div className="f4 text-italic text-serif">
-              Together with their families
+              <div className="f4 text-italic text-serif">
+                Together with their families
+              </div>
+              <div className="h1 text-edmondsans text-uppercase">
+                Ashley Ramsay
+              </div>
+              <svg
+                className="invitation__and py-1"
+                viewBox="0 0 29 32"
+                height="1em"
+                width="1em"
+              >
+                <title>AND</title>
+                <path d="M8.46 22.923l1.537-0.134-3.907-9.252-1.537 0.134-2.241 9.79 1.551-0.136 0.558-2.708 3.019-0.264zM4.701 19.277l0.607-2.931c0.087-0.419 0.155-0.891 0.164-1.097l0.048 0.176c0.043 0.144 0.105 0.337 0.18 0.54l1.231 3.117z"></path>
+                <path d="M23.974 18.139c2.652-0.232 4.361-2.163 4.088-5.278-0.287-3.278-2.296-4.473-5.316-4.209l-2.652 0.232 0.833 9.521zM23.834 16.849l-1.564 0.137-0.606-6.923 1.197-0.105c2.19-0.192 3.529 0.541 3.745 3.017 0.198 2.258-0.882 3.709-2.772 3.875z"></path>
+                <path d="M17.176 10.853l0.833 9.521-1.401 0.123-0.203-2.326-3.729-4.265c-0.13-0.158-0.239-0.318-0.252-0.348l0.056 0.319c0.011 0.068 0.021 0.141 0.030 0.212l0.589 6.715-1.374 0.12-0.833-9.521 1.401-0.123 3.604 4.221 0.13 0.169c0.104 0.141 0.191 0.27 0.213 0.308l-0.058-0.396c-0.008-0.067-0.016-0.136-0.022-0.2l-0.386-4.407z"></path>
+                <path d="M0.883 10.324c-0.221 0.083-0.332 0.329-0.249 0.55s0.329 0.332 0.55 0.249l21.561-8.116c0.464-0.175 0.307-0.868-0.188-0.824-2.971 0.26-5.755-0.254-8.36-1.542-0.211-0.104-0.467-0.018-0.572 0.193s-0.018 0.467 0.193 0.572c1.85 0.915 3.789 1.46 5.813 1.635l0.508 0.036z"></path>
+                <path d="M26.971 21.93c0.221-0.083 0.332-0.329 0.249-0.55s-0.329-0.332-0.55-0.249l-21.561 8.116c-0.464 0.175-0.307 0.868 0.188 0.824 2.971-0.26 5.755 0.254 8.36 1.542 0.211 0.104 0.467 0.018 0.572-0.193s0.018-0.467-0.193-0.572c-1.85-0.915-3.789-1.46-5.813-1.635l-0.508-0.036z"></path>
+              </svg>
+              <div className="h1 text-edmondsans text-uppercase">
+                Amanda Cheung
+              </div>
+              <div className="py-3 f3 text-serif lh-condensed">
+                Invite you to celebrate
+                <br />
+                their marriage
+              </div>
+              <svg
+                className="invitation__spacer"
+                id="icon-invitation-spacer"
+                viewBox="0 0 171 32"
+                height="1em"
+                width="1em"
+              >
+                <path d="M131.865 17.764c0 1.964-1.592 3.556-3.556 3.556s-3.556-1.592-3.556-3.556c0-1.964 1.592-3.556 3.556-3.556s3.556 1.592 3.556 3.556z"></path>
+                <path d="M167.421 17.764c0 1.964-1.592 3.556-3.556 3.556s-3.556-1.592-3.556-3.556c0-1.964 1.592-3.556 3.556-3.556s3.556 1.592 3.556 3.556z"></path>
+                <path d="M42.977 17.764c0 1.964-1.592 3.556-3.556 3.556s-3.556-1.592-3.556-3.556c0-1.964 1.592-3.556 3.556-3.556s3.556 1.592 3.556 3.556z"></path>
+                <path d="M7.421 17.764c0 1.964-1.592 3.556-3.556 3.556s-3.556-1.592-3.556-3.556c0-1.964 1.592-3.556 3.556-3.556s3.556 1.592 3.556 3.556z"></path>
+                <path d="M97.672 0.877c-4.939-2.206-11.387-0.171-13.745 4.537-0.022 0.057-0.089 0.057-0.112 0-2.358-4.708-8.806-6.742-13.745-4.537-5.308 2.377-7.856 8.434-3.665 15.599 2.906 4.96 7.979 8.72 16.763 15.279 0.402 0.309 0.983 0.309 1.386 0 8.784-6.56 13.857-10.331 16.763-15.279 4.202-7.165 1.665-13.222-3.643-15.599z"></path>
+              </svg>
+              <div className="f1 text-serif lh-condensed">
+                {eventInfo.weddingDate}
+              </div>
+              <div className="f3 text-serif lh-condensed">
+                at 3 in the afternoon
+              </div>
+              <div className="py-3 f4 text-serif text-italic">
+                Sea to Sky Gondola | Squamish, Canada
+              </div>
             </div>
-            <div className="h1 text-edmondsans text-uppercase">
-              Ashley Ramsay
-            </div>
-            <svg
-              className="invitation__and py-1"
-              viewBox="0 0 29 32"
-              height="1em"
-              width="1em"
-            >
-              <title>AND</title>
-              <path d="M8.46 22.923l1.537-0.134-3.907-9.252-1.537 0.134-2.241 9.79 1.551-0.136 0.558-2.708 3.019-0.264zM4.701 19.277l0.607-2.931c0.087-0.419 0.155-0.891 0.164-1.097l0.048 0.176c0.043 0.144 0.105 0.337 0.18 0.54l1.231 3.117z"></path>
-              <path d="M23.974 18.139c2.652-0.232 4.361-2.163 4.088-5.278-0.287-3.278-2.296-4.473-5.316-4.209l-2.652 0.232 0.833 9.521zM23.834 16.849l-1.564 0.137-0.606-6.923 1.197-0.105c2.19-0.192 3.529 0.541 3.745 3.017 0.198 2.258-0.882 3.709-2.772 3.875z"></path>
-              <path d="M17.176 10.853l0.833 9.521-1.401 0.123-0.203-2.326-3.729-4.265c-0.13-0.158-0.239-0.318-0.252-0.348l0.056 0.319c0.011 0.068 0.021 0.141 0.030 0.212l0.589 6.715-1.374 0.12-0.833-9.521 1.401-0.123 3.604 4.221 0.13 0.169c0.104 0.141 0.191 0.27 0.213 0.308l-0.058-0.396c-0.008-0.067-0.016-0.136-0.022-0.2l-0.386-4.407z"></path>
-              <path d="M0.883 10.324c-0.221 0.083-0.332 0.329-0.249 0.55s0.329 0.332 0.55 0.249l21.561-8.116c0.464-0.175 0.307-0.868-0.188-0.824-2.971 0.26-5.755-0.254-8.36-1.542-0.211-0.104-0.467-0.018-0.572 0.193s-0.018 0.467 0.193 0.572c1.85 0.915 3.789 1.46 5.813 1.635l0.508 0.036z"></path>
-              <path d="M26.971 21.93c0.221-0.083 0.332-0.329 0.249-0.55s-0.329-0.332-0.55-0.249l-21.561 8.116c-0.464 0.175-0.307 0.868 0.188 0.824 2.971-0.26 5.755 0.254 8.36 1.542 0.211 0.104 0.467 0.018 0.572-0.193s0.018-0.467-0.193-0.572c-1.85-0.915-3.789-1.46-5.813-1.635l-0.508-0.036z"></path>
-            </svg>
-            <div className="h1 text-edmondsans text-uppercase">
-              Amanda Cheung
-            </div>
-            <div className="py-3 f3 text-serif lh-condensed">
-              Invite you to celebrate
-              <br />
-              their marriage
-            </div>
-            <svg
-              className="invitation__spacer"
-              id="icon-invitation-spacer"
-              viewBox="0 0 171 32"
-              height="1em"
-              width="1em"
-            >
-              <path d="M131.865 17.764c0 1.964-1.592 3.556-3.556 3.556s-3.556-1.592-3.556-3.556c0-1.964 1.592-3.556 3.556-3.556s3.556 1.592 3.556 3.556z"></path>
-              <path d="M167.421 17.764c0 1.964-1.592 3.556-3.556 3.556s-3.556-1.592-3.556-3.556c0-1.964 1.592-3.556 3.556-3.556s3.556 1.592 3.556 3.556z"></path>
-              <path d="M42.977 17.764c0 1.964-1.592 3.556-3.556 3.556s-3.556-1.592-3.556-3.556c0-1.964 1.592-3.556 3.556-3.556s3.556 1.592 3.556 3.556z"></path>
-              <path d="M7.421 17.764c0 1.964-1.592 3.556-3.556 3.556s-3.556-1.592-3.556-3.556c0-1.964 1.592-3.556 3.556-3.556s3.556 1.592 3.556 3.556z"></path>
-              <path d="M97.672 0.877c-4.939-2.206-11.387-0.171-13.745 4.537-0.022 0.057-0.089 0.057-0.112 0-2.358-4.708-8.806-6.742-13.745-4.537-5.308 2.377-7.856 8.434-3.665 15.599 2.906 4.96 7.979 8.72 16.763 15.279 0.402 0.309 0.983 0.309 1.386 0 8.784-6.56 13.857-10.331 16.763-15.279 4.202-7.165 1.665-13.222-3.643-15.599z"></path>
-            </svg>
-            <div className="f1 text-serif lh-condensed">
-              {eventInfo.weddingDate}
-            </div>
-            <div className="f3 text-serif lh-condensed">
-              at 3 in the afternoon
-            </div>
-            <div className="py-3 f4 text-serif text-italic">
-              Sea to Sky Gondola | Squamish, Canada
-            </div>
-          </div>
+          </CSSTransition>
           {rsvpForm}
         </div>
       );

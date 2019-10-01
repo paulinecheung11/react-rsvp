@@ -733,8 +733,6 @@ input[type="radio"] + label {
   box-shadow: 0 2px 4px 2px var(--color-purple-08);
   flex-direction: column;
   position: fixed;
-  transition-duration: .5s;
-  transition-property: transform;
   width: 375px;
   z-index: 5;
 }
@@ -767,68 +765,120 @@ input[type="radio"] + label {
   transform-origin: bottom left;
 }
 
+.invitation-enter-active,
+.invitation-exit-active {
+  transition-duration: 6s;
+  transition-property: transform;
+}
 
 @media screen and (max-width: 499px) {
   .invitation {
     bottom: 248px;
     left: -75px;
+  }
+
+  .invitation-enter {
+    transform: scale(.75) translate(70px, 850px) rotate(-5deg);
+  }
+  .invitation-enter-active {
+    transform: scale(.75) rotate(-5deg);
+  }
+  .invitation-exit {
+    transform: scale(.75) rotate(-5deg);
+  }
+  .invitation-exit-active {
     transform: scale(.75) translate(70px, 850px) rotate(-5deg);
   }
 
-  .invitation.is-open {
-    transform: scale(.75) rotate(-5deg);
+  .rsvp-enter {
+    transform: scale(.75) translate(-20px, 400px) rotate(2deg);
   }
-
+  .rsvp-enter-active {
+    transform: scale(.75) rotate(2deg);
+  }
+  .rsvp-exit {
+    transform: scale(.75) rotate(2deg);
+  }
+  .rsvp-exit-active {
+    transform: scale(.75) translate(-20px, 400px) rotate(2deg);
+  }
   .rsvp {
     bottom: -10px;
     right: -122px;
-    transform: scale(.75) translate(-20px, 400px) rotate(2deg);
-  }
-
-  .rsvp.is-open {
-    transform: scale(.75) rotate(2deg);
   }
 }
 @media screen and (min-width: 500px) and (max-width: 749px) {
   .invitation {
     bottom: 75px;
     right: calc(50% - 30px);
+  }
+
+  .invitation-enter {
+    transform: scale(.85) translate(50px, 590px) rotate(-5deg);
+  }
+  .invitation-enter-active {
+    transform: scale(.85) rotate(-5deg);
+  }
+  .invitation-exit {
+    transform: scale(.85) rotate(-5deg);
+  }
+  .invitation-exit-active {
     transform: scale(.85) translate(50px, 590px) rotate(-5deg);
   }
 
-  .invitation.is-open {
-    transform: scale(.85) rotate(-5deg);
+  .rsvp-enter {
+    transform: scale(.85) translate(-20px, 500px) rotate(2deg);
+  }
+  .rsvp-enter-active {
+    transform: scale(.85) rotate(2deg);
+  }
+  .rsvp-exit {
+    transform: scale(.85) rotate(2deg);
+  }
+  .rsvp-exit-active {
+    transform: scale(.85) translate(-20px, 500px) rotate(2deg);
   }
 
   .rsvp {
     bottom: 82px;
     left: calc(50% - 20px);
-    transform: scale(.85) translate(-20px, 500px) rotate(2deg);
-  }
-
-  .rsvp.is-open {
-    transform: scale(.85) rotate(2deg);
   }
 }
 @media screen and (min-width: 750px) {
   .invitation {
     bottom: 80px;
     right: calc(50% + 20px);
+  }
+
+  .invitation-enter {
+    transform: translate(50px, 590px) rotate(-5deg);
+  }
+  .invitation-enter-active {
+    transform: rotate(-5deg);
+  }
+  .invitation-exit {
+    transform: rotate(-5deg);
+  }
+  .invitation-exit-active {
     transform: translate(50px, 590px) rotate(-5deg);
   }
 
-  .invitation.is-open {
-    transform: rotate(-5deg);
+  .rsvp-enter {
+    transform: translate(-20px, 490px) rotate(2deg);
+  }
+  .rsvp-enter-active {
+    transform: rotate(2deg);
+  }
+  .rsvp-exit {
+    transform: rotate(2deg);
+  }
+  .rsvp-exit-active {
+    transform: translate(-20px, 490px) rotate(2deg);
   }
 
   .rsvp {
     bottom: 82px;
     left: calc(50% + 12px);
-    transform: translate(-20px, 490px) rotate(2deg);
-  }
-
-  .rsvp.is-open {
-    transform: rotate(2deg);
   }
 }
 
@@ -863,4 +913,21 @@ input[type="radio"] + label {
 
 @keyframes love {
   0% {top: 100%;}
+}
+
+.fade-enter {
+  opacity: 0;
+}
+.fade-enter-active {
+  opacity: 1;
+  transition-duration: 6s;
+  transition-property: opacity;
+}
+.fade-exit {
+  opacity: 1;
+}
+.fade-exit-active {
+  opacity: 0;
+  transition-duration: 6s;
+  transition-property: opacity;
 }
