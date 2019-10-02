@@ -241,14 +241,14 @@ class Invitation extends Component {
                   <p>
                     Ashley waited patiently for her ideal plan to return the
                     proposal. When we travelled to Whistler, Canada in{" "}
-                    <span className="text-bold">September 2019</span>, she
+                    <span className="text-bold">September 2019</span> she
                     finally had her chance. She took Amanda on a surprise
-                    helicopter ride and proposed atop Rainbow Glacier and Amanda
+                    helicopter ride and proposed atop Rainbow Glacier. Amanda
                     said, "Yes, yes, yes!"
                   </p>
                 </li>
                 <li className="d-flex flex-items-center py-sm-3 py-lg-6 text-uppercase">
-                  <p>The big day</p>
+                  <p>The big day!</p>
                 </li>
                 <li className="d-flex flex-items-center py-sm-3 py-lg-6">
                   <p>Reception in Boston! Details coming soon.</p>
