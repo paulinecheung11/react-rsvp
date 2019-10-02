@@ -484,6 +484,7 @@ button[disabled] + div {
 .top__lettering {
   fill: currentColor;
   max-width: 550px;
+  height: auto;
 }
 
 .top__desc {
