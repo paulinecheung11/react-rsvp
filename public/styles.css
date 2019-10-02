@@ -847,10 +847,12 @@ input[type="radio"] + label {
 .hearts {
   bottom: var(--footer-height);
   height: 100%;
-  left: var(--border-height);
+  left: 50%;
+  max-width: var(--max-width);
   overflow: hidden;
   pointer-events: none;
   position: fixed;
+  transform: translateX(-50%);
   width: calc(100% - 2 * var(--border-height));
   z-index: 1;
 }
