@@ -126,6 +126,8 @@ class Invitation extends Component {
                 className="top__lettering col-10"
                 id="icon-married"
                 viewBox="0 0 71 32"
+                height="248"
+                width="550"
               >
                 <title>Married! &lt;3</title>
                 <path d="M12.419 8.882c-0.091 2.030 0.046 3.878-1.848 8.304-3.080 7.118-8.624 8.806-8.715 9.239-0.091 0.388 1.186 0.297 2.076 0.068 0.662-0.16 4.837-3.24 6.685-6.662 1.848-3.468 2.373-7.551 2.441-9.627 0.023-1.049 0.023-1.848-0.251-2.167-0.434-0.502-0.365 0.297-0.388 0.844z"></path>
@@ -195,6 +197,8 @@ class Invitation extends Component {
                     Vietnam at the start of our{" "}
                     <a
                       className="text-link"
+                      target="_blank"
+                      rel="noopener noreferrer"
                       href="https://remoteyear.com/itineraries/sisu"
                     >
                       Remote Year program
@@ -239,14 +243,14 @@ class Invitation extends Component {
                   <p>
                     Ashley waited patiently for her ideal plan to return the
                     proposal. When we travelled to Whistler, Canada in{" "}
-                    <span className="text-bold">September 2019</span>, she
+                    <span className="text-bold">September 2019</span> she
                     finally had her chance. She took Amanda on a surprise
-                    helicopter ride and proposed atop Rainbow Glacier and Amanda
+                    helicopter ride and proposed atop Rainbow Glacier. Amanda
                     said, "Yes, yes, yes!"
                   </p>
                 </li>
                 <li className="d-flex flex-items-center py-sm-3 py-lg-6 text-uppercase">
-                  <p>The big day</p>
+                  <p>The big day!</p>
                 </li>
                 <li className="d-flex flex-items-center py-sm-3 py-lg-6">
                   <p>Reception in Boston! Details coming soon.</p>

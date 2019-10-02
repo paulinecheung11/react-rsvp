@@ -2,6 +2,8 @@
   background-color: transparent;
   border: none;
   border-bottom: 1px solid var(--color-pink);
+  border-radius: 0;
+  box-sizing: border-box;
   font-size: 16px;
   font-family: inherit;
   padding-bottom: var(--spacing-2);

@@ -484,6 +484,7 @@ button[disabled] + div {
 .top__lettering {
   fill: currentColor;
   max-width: 550px;
+  height: auto;
 }
 
 .top__desc {
@@ -651,6 +652,7 @@ button[disabled] + div {
   background-color: transparent;
   border: none;
   border-bottom: 1px solid var(--color-pink);
+  border-radius: 0;
   font-size: inherit;
   padding-left: 16px;
   text-align: center;
@@ -847,10 +849,12 @@ input[type="radio"] + label {
 .hearts {
   bottom: var(--footer-height);
   height: 100%;
-  left: var(--border-height);
+  left: 50%;
+  max-width: var(--max-width);
   overflow: hidden;
   pointer-events: none;
   position: fixed;
+  transform: translateX(-50%);
   width: calc(100% - 2 * var(--border-height));
   z-index: 1;
 }
