@@ -195,6 +195,8 @@ class Invitation extends Component {
                     Vietnam at the start of our{" "}
                     <a
                       className="text-link"
+                      target="_blank"
+                      rel="noopener noreferrer"
                       href="https://remoteyear.com/itineraries/sisu"
                     >
                       Remote Year program
