@@ -141,7 +141,7 @@ class Auth extends Component {
           <legend className='form-legend mx-auto py-3 d-flex flex-justify-center text-serif text-center'>
             To view your invitation, enter your email and top secret password below:
           </legend>
-          <div className='text-nunito'>{form}</div>
+          <div className='text-plex'>{form}</div>
           <div className='py-4 text-center'>
             <Button btnType="Success">Submit</Button>
             <div className='mx-auto'></div>
