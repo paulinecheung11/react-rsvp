@@ -94,7 +94,7 @@ button[disabled] + div {
 }
 
 .text-bold {
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .text-uppercase {
@@ -125,8 +125,8 @@ button[disabled] + div {
   font-family: 'Edmondsans-Bold', sans-serif;
 }
 
-.text-nunito {
-  font-family: 'Nunito Sans', sans-serif;
+.text-plex {
+  font-family: 'IBM Plex Sans', sans-serif;
 }
 
 .text-italic {
@@ -363,7 +363,7 @@ button[disabled] + div {
   outline: none;
 }
 .frame__icon .frame__heart {
-  animation: beat 5s infinite;
+  animation: beat 4s infinite;
   fill: var(--color-pink);
   font-size: 1.5rem;
   height: 1em;

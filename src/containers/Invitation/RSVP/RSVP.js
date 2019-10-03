@@ -184,7 +184,7 @@ class RSVP extends Component {
                   }
                   min="0"
                   max={data.guestCount}
-                  className="form-number text-nunito"
+                  className="form-number text-plex"
                   type="number"
                   name="guest-number"
                   id="guest-number"
@@ -204,7 +204,7 @@ class RSVP extends Component {
                 disabled={formError}
                 onChange={e => this.messageChangeHandler(e, data)}
                 value={data.message}
-                className="form-textarea col-12 text-nunito"
+                className="form-textarea col-12 text-plex"
                 rows="2"
                 name="message"
                 id="message"
@@ -270,11 +270,11 @@ class RSVP extends Component {
       displayData = (
         <div>
           <div className="frame__header col-12 d-flex flex-items-center flex-justify-center">
-            <span className="f2 text-nunito text-cream text-bold">
+            <span className="f2 text-plex text-cream text-bold">
               Hi {data.name}!
             </span>
             <button
-              className="f4 frame__exit text-pink text-edmondsans text-bold text-uppercase"
+              className="f4 frame__exit text-pink text-edmondsans text-uppercase"
               onClick={this.logoutHandler}
             >
               <span>Sign Out</span> →
