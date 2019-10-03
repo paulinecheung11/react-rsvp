@@ -25,7 +25,7 @@ class RSVP extends Component {
         updatedError: ""
       });
     } else {
-      if (data.rsvpCount === "" || data.rsvpCount === "0") {
+      if (data.rsvpCount === "0") {
         this.setState({
           updatedError: "Must be more than 0"
         });
