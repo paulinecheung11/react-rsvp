@@ -25,10 +25,14 @@ class RSVP extends Component {
         updatedError: ""
       });
     } else {
-      if (data.rsvpCount === "0") {
-        this.setState({
-          updatedError: "Must be more than 0"
-        });
+      if (data.rsvpCount === "") {
+        data.rsvpCount = data.guestCount;
+      } else {
+        if (data.rsvpCount === "0") {
+          this.setState({
+            updatedError: "Must be more than 0"
+          });
+        }
       }
     }
     this.setState({
