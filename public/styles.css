@@ -46,16 +46,17 @@ section {
 }
 
 @font-face {
-  font-family: "Edmondsans-Bold";
+  font-family: 'Edmondsans-Bold';
   font-display: swap;
-  src: url("edmondsans-bold-webfont.woff2") format("woff2"),
-    url("edmondsans-bold-webfont.woff") format("woff");
+  src: url('edmondsans-bold-webfont.woff2') format('woff2'),
+    url('edmondsans-bold-webfont.woff') format('woff');
 }
 
 :root {
   --color-black: #290e30;
   --color-pink: #ff7177;
   --color-purple: #482451;
+  --color-frame: #2a4782;
   --color-purple-08: rgba(72, 36, 80, 0.08);
   --color-cream: #ffeada;
   --color-cream-dark: #ffe2be;
@@ -84,9 +85,9 @@ html {
 }
 
 body {
-  background-color: var(--color-purple);
+  background-color: var(--color-frame);
   font-size: 18px;
-  font-family: Minion Pro, "Times New Roman", Times, serif;
+  font-family: Minion Pro, 'Times New Roman', Times, serif;
 }
 
 button[disabled] {
@@ -146,15 +147,15 @@ button[disabled] + div {
 }
 
 .text-serif {
-  font-family: Minion Pro, "Times New Roman", Times, serif;
+  font-family: Minion Pro, 'Times New Roman', Times, serif;
 }
 
 .text-edmondsans {
-  font-family: "Edmondsans-Bold", sans-serif;
+  font-family: 'Edmondsans-Bold', sans-serif;
 }
 
 .text-plex {
-  font-family: "IBM Plex Sans", sans-serif;
+  font-family: 'IBM Plex Sans', sans-serif;
 }
 
 .text-italic {
@@ -349,7 +350,7 @@ button[disabled] + div {
 
 .frame {
   border: 6px solid var(--color-cream);
-  box-shadow: 0 0 0 var(--border-height) var(--color-purple);
+  box-shadow: 0 0 0 var(--border-height) var(--color-frame);
   box-sizing: border-box;
   height: calc(100vh - var(--border-height) - var(--footer-height));
   max-width: var(--max-width);
@@ -397,7 +398,7 @@ button[disabled] + div {
 }
 
 .frame__footer {
-  background-color: var(--color-purple);
+  background-color: var(--color-frame);
   bottom: 0;
   height: var(--footer-height);
   left: 0;
@@ -499,6 +500,10 @@ button[disabled] + div {
 }
 
 @media screen and (min-width: 950px) {
+  .hide-on-desktop {
+    opacity: 0;
+  }
+
   .illustration {
     left: calc(50% - var(--max-width) / 2);
     width: var(--max-width);
@@ -611,7 +616,7 @@ button[disabled] + div {
 
 .timeline li:before,
 .timeline li:after {
-  content: "";
+  content: '';
   position: absolute;
   height: 50%;
   background-color: var(--color-pink);
@@ -650,7 +655,7 @@ button[disabled] + div {
 .timeline li p:before {
   background-color: var(--color-cream);
   border-radius: 50%;
-  content: "";
+  content: '';
   height: 4px;
   position: absolute;
   top: calc(50% - 2px);
@@ -670,6 +675,10 @@ button[disabled] + div {
 
 .timeline li:nth-child(even) p:before {
   left: -38px;
+}
+
+.form {
+  background-color: var(--color-purple);
 }
 
 .card {
@@ -744,7 +753,7 @@ button[disabled] + div {
   outline: none;
 }
 
-input[type="radio"] + label {
+input[type='radio'] + label {
   position: relative;
   top: 3px;
 }
@@ -808,7 +817,7 @@ input[type="radio"] + label {
 
 .card--alt:before,
 .card--alt:after {
-  content: "";
+  content: '';
   border: 1px solid var(--color-cream-dark);
   pointer-events: none;
   position: absolute;
@@ -840,7 +849,7 @@ input[type="radio"] + label {
 
 @media screen and (max-width: 499px) {
   .invitation {
-    bottom: 248px;
+    bottom: 340px;
     left: -75px;
     transform: scale(0.75) translate(70px, 850px) rotate(-5deg);
   }
