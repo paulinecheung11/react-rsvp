@@ -48,7 +48,7 @@ class Invitation extends Component {
               <img
                 className='illustration rellax'
                 data-rellax-speed='-1'
-                src='/lodge.svg'
+                src='/bridge.svg'
                 alt=''
               />
               <svg
@@ -121,7 +121,7 @@ class Invitation extends Component {
             </svg>
             <div className='top py-sm-3 py-lg-6 text-center'>
               <h1 className='py-sm-3 py-lg-6 text-edmondsans text-uppercase text-spacing'>
-                - We just got -
+                - Come celebrate us getting -
               </h1>
               <svg
                 className='top__lettering col-10'
@@ -175,12 +175,12 @@ class Invitation extends Component {
               </div>
             </div>
             <div className='middle col-10 mx-auto text-center' id='scroll'>
-              <div className='py-6 text-edmondsans text-uppercase text-spacing text-cream'>
+              <div className='py-6 text-edmondsans text-uppercase text-spacing text-cream hide-on-desktop'>
                 Dearest friends and family, we would love you to…
               </div>
               <div></div>
               <div></div>
-              <div className='py-6 text-edmondsans text-uppercase text-spacing text-cream'>
+              <div className='py-6 text-edmondsans text-uppercase text-spacing text-cream hide-on-desktop'>
                 join us in celebrating our marriage!
               </div>
             </div>

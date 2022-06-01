@@ -56,6 +56,7 @@ section {
   --color-black: #290e30;
   --color-pink: #ff7177;
   --color-purple: #482451;
+  --color-frame: #2a4782;
   --color-purple-08: rgba(72, 36, 80, 0.08);
   --color-cream: #ffeada;
   --color-cream-dark: #ffe2be;
@@ -84,7 +85,7 @@ html {
 }
 
 body {
-  background-color: var(--color-purple);
+  background-color: var(--color-frame);
   font-size: 18px;
   font-family: Minion Pro, 'Times New Roman', Times, serif;
 }
@@ -349,7 +350,7 @@ button[disabled] + div {
 
 .frame {
   border: 6px solid var(--color-cream);
-  box-shadow: 0 0 0 var(--border-height) var(--color-purple);
+  box-shadow: 0 0 0 var(--border-height) var(--color-frame);
   box-sizing: border-box;
   height: calc(100vh - var(--border-height) - var(--footer-height));
   max-width: var(--max-width);
@@ -397,7 +398,7 @@ button[disabled] + div {
 }
 
 .frame__footer {
-  background-color: var(--color-purple);
+  background-color: var(--color-frame);
   bottom: 0;
   height: var(--footer-height);
   left: 0;
@@ -499,6 +500,10 @@ button[disabled] + div {
 }
 
 @media screen and (min-width: 950px) {
+  .hide-on-desktop {
+    opacity: 0;
+  }
+
   .illustration {
     left: calc(50% - var(--max-width) / 2);
     width: var(--max-width);
@@ -670,6 +675,10 @@ button[disabled] + div {
 
 .timeline li:nth-child(even) p:before {
   left: -38px;
+}
+
+.form {
+  background-color: var(--color-purple);
 }
 
 .card {
