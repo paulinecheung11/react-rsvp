@@ -242,8 +242,7 @@ class RSVP extends Component {
               Thank you
             </div>
             <div className='f3 text-serif col-8'>
-              Can’t wait! We will be sending you an email shortly with more
-              details.
+              Can’t wait! See you on October 2nd.
             </div>
           </div>
         );
@@ -257,9 +256,7 @@ class RSVP extends Component {
               Thank you
             </div>
             <div className='f3 text-serif col-8'>
-              Sorry that you won’t be able to make it. We’ll also be having a
-              reception in Boston and will be sending out invitations
-              separately.
+              Sorry that you won’t be able to make it.
             </div>
           </div>
         );
